@@ -13,7 +13,7 @@ from wcwidth import wcswidth
 from datetime import datetime
 
 from config import (
-    BOLD, RED, WHITE, YELLOW, MAGENTA, WHITE, RESET,
+    BOLD, RED, WHITE, YELLOW, MAGENTA, CYAN, RESET,
     BOX_WIDTH, CONTENT_WIDTH, GREEN
 )
 
@@ -737,30 +737,57 @@ class Identity:
 {notes_block}╚{'═'*BOX_WIDTH}╝"""
 
     def display_considerations_box(self) -> str:
-        """Display cultural considerations in a simple box format."""
+        """Display cultural considerations in a box format with colors."""
+        country_name = self.country.upper() if hasattr(self, 'country') else "UNKNOWN"
+        
         if not self.considerations or self.considerations.strip() == "":
+            # Calculate proper padding for title with ANSI codes
+            title_text = "CULTURAL CONSIDERATIONS"
+            title_with_color = f"{BOLD}{CYAN}{title_text}{RESET}"
+            # Padding = (BOX_WIDTH - len(title_text)) // 2
+            left_pad = (BOX_WIDTH - len(title_text)) // 2
+            right_pad = BOX_WIDTH - len(title_text) - left_pad
+            title_line = f"║{' '*left_pad}{title_with_color}{' '*right_pad}║"
+            
             return f"""╔{'═'*BOX_WIDTH}╗
-║{BOLD}{'CULTURAL CONSIDERATIONS'.center(BOX_WIDTH)}{RESET}║
+{title_line}
 ╠{'═'*BOX_WIDTH}╣
-║{'No cultural considerations available for this country.'.ljust(CONTENT_WIDTH)}║
+║{YELLOW}{'No cultural considerations available for this country.'.ljust(CONTENT_WIDTH)}{RESET}║
 ╚{'═'*BOX_WIDTH}╝"""
 
-        # Process text: remove markdown, replace dashes with tabs, clean up
+        # Process text: remove markdown, clean up
         text = self.considerations
         text = text.replace('#', '')  # Remove markdown headers
         text = text.replace('**', '')  # Remove markdown bold
         lines = text.split('\n')
 
         formatted_lines = []
+        current_section = None
+        first_line = True
+        
         for line in lines:
+            # Skip the first line if it's the title (already shown in header)
+            if first_line:
+                first_line = False
+                if 'CULTURAL CONSIDERATIONS' in line.upper():
+                    continue
+            
             line = line.strip()
             if not line:
-                formatted_lines.append("")  # Empty line
+                formatted_lines.append(("empty", ""))  # Empty line
                 continue
 
-            # Replace leading dash with spaces (not tab for consistent padding)
+            # Detect section headers (lines that end with : or are all caps)
+            if line.endswith(':') and len(line) < 60:
+                current_section = line
+                formatted_lines.append(("header", line))
+                continue
+            
+            # Replace leading dash with spaces for list items
+            is_list_item = False
             if line.startswith('-'):
-                line = '  ' + line[1:].strip()  # 2 spaces instead of tab
+                line = '  ' + line[1:].strip()  # 2 spaces for indent
+                is_list_item = True
 
             # Wrap long lines
             while len(line) > CONTENT_WIDTH:
@@ -768,24 +795,47 @@ class Identity:
                 wrap_pos = line[:CONTENT_WIDTH].rfind(' ')
                 if wrap_pos == -1:
                     wrap_pos = CONTENT_WIDTH
-                formatted_lines.append(line[:wrap_pos])
-                line = ('  ' if line.startswith('  ') else '') + line[wrap_pos:].strip()
+                formatted_lines.append(("list" if is_list_item else "text", line[:wrap_pos]))
+                remaining = line[wrap_pos:].strip()
+                line = ('  ' if is_list_item else '') + remaining
+                is_list_item = False  # Only first line gets list marker
+            
             if line:
-                formatted_lines.append(line)
+                formatted_lines.append(("list" if is_list_item else "text", line))
 
-        # Build box
+        # Build box with title
+        title_text = f"CULTURAL CONSIDERATIONS FOR {country_name}"
+        # Calculate padding accounting for ANSI codes
+        left_pad = (BOX_WIDTH - len(title_text)) // 2
+        right_pad = BOX_WIDTH - len(title_text) - left_pad
+        title_with_color = f"{BOLD}{CYAN}{title_text}{RESET}"
+        title_line = f"║{' '*left_pad}{title_with_color}{' '*right_pad}║"
+        
         result = f"╔{'═'*BOX_WIDTH}╗\n"
-        result += f"║{BOLD}{'CULTURAL CONSIDERATIONS'.center(BOX_WIDTH)}{RESET}║\n"
+        result += f"{title_line}\n"
         result += f"╠{'═'*BOX_WIDTH}╣\n"
 
-        for line in formatted_lines:
-            # Replace any remaining tabs with 2 spaces for consistent padding
-            line = line.replace('\t', '  ')
-            result += f"║{line.ljust(CONTENT_WIDTH)}║\n"
+        for line_type, line_text in formatted_lines:
+            # Replace any remaining tabs with spaces
+            line_text = line_text.replace('\t', '  ')
+            
+            if line_type == "empty":
+                result += f"║{' '*CONTENT_WIDTH}║\n"
+            elif line_type == "header":
+                # Section headers in bold yellow
+                padding_needed = CONTENT_WIDTH - len(line_text)
+                result += f"║{BOLD}{YELLOW}{line_text}{RESET}{' '*padding_needed}║\n"
+            elif line_type == "list":
+                # List items in white
+                padding_needed = CONTENT_WIDTH - len(line_text)
+                result += f"║{WHITE}{line_text}{RESET}{' '*padding_needed}║\n"
+            else:
+                # Regular text in white
+                padding_needed = CONTENT_WIDTH - len(line_text)
+                result += f"║{WHITE}{line_text}{RESET}{' '*padding_needed}║\n"
 
         result += f"╚{'═'*BOX_WIDTH}╝"
         return result
-
 
 class CountryRules:
     """
