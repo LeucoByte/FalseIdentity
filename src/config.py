@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Data directories
 DATA_DIR = BASE_DIR / "data"
 COUNTRIES_DIR = DATA_DIR / "countries"
-IDENTITIES_DIR = DATA_DIR / "identities"
+IDENTITIES_DIR = BASE_DIR / "identities-generated"  # Changed to root-level directory
 JOBS_FILE = DATA_DIR / "jobs.txt"
 HOBBIES_FILE = DATA_DIR / "hobbies.txt"
 

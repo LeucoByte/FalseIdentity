@@ -328,11 +328,20 @@ def view_saved_identities():
 
         # Handle cultural considerations view
         if note_choice.lower() == 'c':
-            print()
+            clear_screen()  # Clean FIRST, then show context
             print(identity.display_considerations_box())
             print()
             input(f"{BOLD}Press Enter to continue...{RESET}")
             clear_screen()
+            # Redisplay identity and options
+            print(identity.to_str_box())
+            print()
+            print(f"{BOLD}{YELLOW}Options:{RESET}")
+            print(f"  [{RED}c{RESET}] View cultural considerations")
+            print(f"  [{RED}a{RESET}] Add a note")
+            print(f"  [{RED}r + Number{RESET}] Remove note (e.g., r1)")
+            print(f"  [{RED}Enter{RESET}] Return to identity list")
+            print()
             continue
 
         # Handle note management

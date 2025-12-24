@@ -131,7 +131,7 @@ class Identity:
     family: Optional[Dict[str, Any]] = None
     considerations: str = ""  # Cultural considerations for the country
     regional_characteristics: Optional[List[str]] = None  # Regional/historical characteristics
-    status: str = "created"  # Status: created, recovered, panic
+    status: str = "Created"  # Status: Created (new identity), Recovered (panic mode recovery)
     notes: List[str] = None
 
     def __post_init__(self):
@@ -758,9 +758,9 @@ class Identity:
                 formatted_lines.append("")  # Empty line
                 continue
 
-            # Replace leading dash with tab
+            # Replace leading dash with spaces (not tab for consistent padding)
             if line.startswith('-'):
-                line = '\t' + line[1:].strip()
+                line = '  ' + line[1:].strip()  # 2 spaces instead of tab
 
             # Wrap long lines
             while len(line) > CONTENT_WIDTH:
@@ -769,7 +769,7 @@ class Identity:
                 if wrap_pos == -1:
                     wrap_pos = CONTENT_WIDTH
                 formatted_lines.append(line[:wrap_pos])
-                line = line[wrap_pos:].strip()
+                line = ('  ' if line.startswith('  ') else '') + line[wrap_pos:].strip()
             if line:
                 formatted_lines.append(line)
 
@@ -779,6 +779,8 @@ class Identity:
         result += f"╠{'═'*BOX_WIDTH}╣\n"
 
         for line in formatted_lines:
+            # Replace any remaining tabs with 2 spaces for consistent padding
+            line = line.replace('\t', '  ')
             result += f"║{line.ljust(CONTENT_WIDTH)}║\n"
 
         result += f"╚{'═'*BOX_WIDTH}╝"

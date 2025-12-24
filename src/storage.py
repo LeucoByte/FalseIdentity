@@ -6,12 +6,90 @@ Handles saving, loading, and deleting identity files.
 """
 
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import List
 
 from models import Identity
 from config import IDENTITIES_DIR
+
+
+# Transliteration map for Cyrillic to Latin
+CYRILLIC_TO_LATIN = {
+    'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Е': 'E', 'Ё': 'E', 'Ж': 'Zh',
+    'З': 'Z', 'И': 'I', 'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N', 'О': 'O',
+    'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U', 'Ф': 'F', 'Х': 'Kh', 'Ц': 'Ts',
+    'Ч': 'Ch', 'Ш': 'Sh', 'Щ': 'Shch', 'Ъ': '', 'Ы': 'Y', 'Ь': '', 'Э': 'E', 'Ю': 'Yu',
+    'Я': 'Ya',
+    'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh',
+    'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
+    'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts',
+    'ч': 'ch', 'ш': 'sh', 'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu',
+    'я': 'ya'
+}
+
+
+def transliterate(text: str) -> str:
+    """
+    Transliterate Cyrillic characters to Latin.
+
+    Args:
+        text: Text that may contain Cyrillic characters
+
+    Returns:
+        Transliterated text with only ASCII characters
+    """
+    result = []
+    for char in text:
+        if char in CYRILLIC_TO_LATIN:
+            result.append(CYRILLIC_TO_LATIN[char])
+        else:
+            result.append(char)
+    return ''.join(result)
+
+
+def generate_filename(identity: Identity) -> str:
+    """
+    Generate a coherent filename for an identity.
+
+    For Spanish (Latin characters): FirstName_Surname1_Surname2_timestamp.json
+    For Russian (Cyrillic): Transliterated_Name_Surname_timestamp.json
+
+    Args:
+        identity: Identity object
+
+    Returns:
+        Filename string
+    """
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    # Get first name and surnames
+    first_name = identity.first_name
+    surnames = identity.surnames if hasattr(identity, 'surnames') else []
+
+    # Build name parts
+    name_parts = [first_name]
+    if surnames:
+        name_parts.extend(surnames)
+
+    # Join with underscores
+    full_name = '_'.join(name_parts)
+
+    # Transliterate if Cyrillic
+    full_name_clean = transliterate(full_name)
+
+    # Remove any remaining non-alphanumeric characters (except underscores)
+    full_name_clean = re.sub(r'[^a-zA-Z0-9_]', '', full_name_clean)
+
+    # Limit length to avoid overly long filenames (max 50 chars for name part)
+    if len(full_name_clean) > 50:
+        full_name_clean = full_name_clean[:50]
+
+    # Generate filename
+    filename = f"{full_name_clean}_{timestamp}.json"
+
+    return filename
 
 
 def save_identity(identity: Identity, directory: str = None, filepath: str = None) -> str:
@@ -32,7 +110,7 @@ def save_identity(identity: Identity, directory: str = None, filepath: str = Non
             f.write(identity.to_json())
         return str(filepath)
 
-    # Otherwise, create new file with timestamp
+    # Otherwise, create new file with coherent naming
     if directory is None:
         directory = IDENTITIES_DIR
 
@@ -40,10 +118,8 @@ def save_identity(identity: Identity, directory: str = None, filepath: str = Non
     dir_path = Path(directory)
     dir_path.mkdir(parents=True, exist_ok=True)
 
-    # Generate filename: email_timestamp.json
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    email_clean = identity.email.replace('@', '_at_').replace('.', '_')
-    filename = f"{email_clean}_{timestamp}.json"
+    # Generate coherent filename
+    filename = generate_filename(identity)
     file_path = dir_path / filename
 
     # Save to file
@@ -64,8 +140,8 @@ def load_identity(filepath: str) -> Identity:
         Identity object
 
     Note:
-        Handles backward compatibility by setting default email_status
-        if not present in older saved files.
+        Handles backward compatibility by setting default values
+        for missing fields in older saved files.
     """
     with open(filepath, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -76,6 +152,9 @@ def load_identity(filepath: str) -> Identity:
 
     if 'notes' not in data:
         data['notes'] = []
+
+    if 'status' not in data:
+        data['status'] = "Created"  # Default status for old files
 
     if 'family' not in data:
         data['family'] = {
@@ -209,6 +288,10 @@ def import_identities_from_json(json_file: str, directory: str = None) -> tuple[
                 # Set default email_status if not present
                 if 'email_status' not in identity_dict:
                     identity_dict['email_status'] = "Inactivated"
+
+                # Set default status if not present
+                if 'status' not in identity_dict:
+                    identity_dict['status'] = "Created"
 
                 # Create Identity object
                 identity = Identity(**identity_dict)

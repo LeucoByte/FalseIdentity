@@ -1031,6 +1031,11 @@ class IdentityGenerator:
                 years_ago = max(1, years_ago)
 
                 start_year = current_year - years_ago
+
+                # CRITICAL: FINAL SAFETY CHECK - start year can NEVER be in future or current year
+                if start_year >= current_year:
+                    start_year = current_year - 1
+
                 start_month = random.randint(1, 12)
                 start_day = random.randint(1, 28)
 
@@ -1047,7 +1052,12 @@ class IdentityGenerator:
                 MIN_LEGAL_AGE = 18
                 MIN_REALISTIC_AGE = 22  # More realistic minimum for most marriages
 
-                max_marriage_age = min(40, age - 1)
+                # CRITICAL: max_marriage_age MUST be less than current age (can't marry in future/present)
+                max_marriage_age = min(40, age - 2)  # At least 2 years ago
+
+                # Ensure max_marriage_age is valid
+                if max_marriage_age < MIN_LEGAL_AGE:
+                    max_marriage_age = min(MIN_LEGAL_AGE, age - 1)
 
                 # Determine realistic minimum based on social class and context
                 # Only allow early marriage (18-21) for high/upper-middle class
@@ -1058,8 +1068,24 @@ class IdentityGenerator:
                     # Low/middle class: marriage typically 22+ (need financial stability)
                     min_marriage_age = max(MIN_REALISTIC_AGE, min(24, max_marriage_age))
 
+                # CRITICAL: Ensure min_marriage_age < max_marriage_age and both < age
+                min_marriage_age = min(min_marriage_age, max_marriage_age - 1)
+                if min_marriage_age >= age:
+                    min_marriage_age = max(MIN_LEGAL_AGE, age - 3)
+                if max_marriage_age >= age:
+                    max_marriage_age = age - 1
+
+                # FINAL SAFETY: marriage_age MUST be at least 1 year less than current age
                 marriage_age = random.randint(min_marriage_age, max(min_marriage_age, max_marriage_age))
+                if marriage_age >= age:
+                    marriage_age = max(MIN_LEGAL_AGE, age - 1)
+
                 years_married = age - marriage_age
+
+                # CRITICAL: Verify years_married is positive
+                if years_married <= 0:
+                    years_married = 1
+                    marriage_age = age - 1
 
                 # Verify partner was also at least 18 when married
                 partner_age_at_marriage = current_age - years_married
@@ -1069,6 +1095,11 @@ class IdentityGenerator:
                     marriage_age = age - years_married
 
                 marriage_year = current_year - years_married
+
+                # CRITICAL: FINAL SAFETY CHECK - marriage year can NEVER be in future or current year
+                if marriage_year >= current_year:
+                    marriage_year = current_year - random.randint(1, 3)
+
                 marriage_month = random.randint(1, 12)
                 marriage_day = random.randint(1, 28)
 

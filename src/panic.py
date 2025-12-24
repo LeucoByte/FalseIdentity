@@ -616,18 +616,25 @@ def panic_recovery():
         imported_count = 0
         failed_count = 0
 
+        from models import Identity
+
         for identity_dict in identities:
             try:
-                # Create filename
-                email = identity_dict.get('email', 'unknown')
-                timestamp = time.strftime('%Y%m%d_%H%M%S')
-                filename = f"{email.replace('@', '_at_')}_{timestamp}.json"
-                filepath = IDENTITIES_DIR / filename
+                # Set email_status default if not present
+                if 'email_status' not in identity_dict:
+                    identity_dict['email_status'] = "Inactivated"
 
-                # Save identity
-                with open(filepath, 'w', encoding='utf-8') as f:
-                    json.dump(identity_dict, f, ensure_ascii=False, indent=2)
+                # CRITICAL: Update status for panic recovery
+                # If already "Recovered", keep it. Otherwise mark as "Recovered" (not "Created")
+                current_status = identity_dict.get('status', 'Created')
+                if current_status != 'Recovered':
+                    identity_dict['status'] = 'Recovered'
 
+                # Create Identity object
+                identity = Identity(**identity_dict)
+
+                # Save using storage system (uses coherent naming)
+                save_identity(identity)
                 imported_count += 1
             except Exception as e:
                 failed_count += 1

@@ -24,8 +24,15 @@ tests/
 .cache/
 *.log
 
+# Identities and generated data
 identities-generated/
+data/identities/
 *.json
+!data/countries/**/*.json
+!data/*.json
+
+# Backup files
+src/storage_backup.py
 
 .DS_Store
 *.zip
