@@ -1,0 +1,19 @@
+# Regional and Historical Characteristics for China
+# Format: characteristic_text|min_age|max_age|gender|probability
+# gender: male, female, both
+# probability: 0.0-1.0 (chance of applying)
+# CRITICAL: Current year is 2025. Min_age = age when CONSCIOUSLY experienced (not just alive)
+# For "grew up" events: need 10+ years of conscious experience
+# For "witnessed/experienced" events: need to be 14+ (teenager awareness)
+# For "remembers" events: need to be 7+ (childhood memories)
+
+Grew up during Cultural Revolution aftermath|55|999|both|0.75
+Witnessed Tiananmen Square events (1989)|50|999|both|0.65
+Experienced one-child policy restrictions|30|55|both|0.9
+Remembers SARS epidemic (2003)|36|999|both|0.7
+Witnessed Beijing Olympics (2008)|31|999|both|0.8
+Experienced gaokao exam pressure|18|60|both|0.85
+Grew up with WeChat and social media ecosystem|18|35|both|0.9
+Experienced COVID-19 lockdowns in major cities|18|999|both|0.9
+Witnessed rise of mobile payment revolution|25|999|both|0.8
+Lived through rapid high-speed rail expansion|18|999|both|0.75

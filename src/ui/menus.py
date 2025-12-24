@@ -9,6 +9,7 @@ import random
 import subprocess
 import time
 from pathlib import Path
+from wcwidth import wcswidth
 
 from config import (
     BOLD, RED, GREEN, YELLOW, CYAN, MAGENTA, RESET,
@@ -21,6 +22,31 @@ from storage import (
 )
 from ui.display import clear_screen, print_world_ascii
 from panic import panic_mode, panic_recovery
+
+
+def pad_unicode_string(text: str, width: int) -> str:
+    """
+    Pad a string to a specific width, accounting for Unicode character widths.
+
+    Args:
+        text: String to pad (may contain Unicode characters)
+        width: Target display width
+
+    Returns:
+        Padded string
+    """
+    # Calculate visual width of the string
+    visual_width = wcswidth(text)
+    if visual_width < 0:
+        # If wcswidth returns -1 (contains non-printable), fallback to len()
+        visual_width = len(text)
+
+    # Calculate padding needed
+    padding_needed = width - visual_width
+    if padding_needed > 0:
+        return text + (' ' * padding_needed)
+    else:
+        return text
 
 
 def generate_new_identity():
@@ -258,7 +284,10 @@ def view_saved_identities():
         country = identity.country.upper()
         website = identity.website
 
-        print(f"    [{RED}{i:0{num_width}d}{RESET}] {full_name:<44}{country:<30}{website}")
+        # Use Unicode-aware padding for proper alignment
+        padded_name = pad_unicode_string(full_name, 44)
+        padded_country = pad_unicode_string(country, 30)
+        print(f"    [{RED}{i:0{num_width}d}{RESET}] {padded_name}{padded_country}{website}")
 
     print()
     print(f"{BOLD}{YELLOW}Options:{RESET}")

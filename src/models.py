@@ -235,11 +235,16 @@ def translate(text: str, country: str) -> str:
             if TRANSLITERATE_AVAILABLE:
                 # Use transliterate library for proper Russian romanization
                 try:
-                    return translit(text, 'ru', reversed=True)
+                    result = translit(text, 'ru', reversed=True)
+                    # Remove apostrophes (') used for soft sign (ь) - not used in real life
+                    result = result.replace("'", "")
+                    return result
                 except:
                     pass
             # Fallback to manual Cyrillic map
-            return transliterate(text)
+            result = transliterate(text)
+            # Remove apostrophes from manual transliteration too
+            return result.replace("'", "")
 
         # GREECE - Greek alphabet (Ελληνικά)
         elif country == 'greece':

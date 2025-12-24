@@ -1980,6 +1980,40 @@ class IdentityGenerator:
         sibling_probability = rules.get_sibling_probability()
         siblings_death_prob = rules.get_death_probability("siblings", identity_age_bucket)
 
+        # SPECIAL: One-child policy for China
+        if country.lower() == 'china':
+            # Calculate birth year from age
+            from datetime import datetime
+            current_year = datetime.now().year
+            birth_year = current_year - age
+
+            # Apply one-child policy rules based on birth year
+            if birth_year < 1980:
+                # Before one-child policy: More siblings allowed
+                avg_siblings = float(rules.get('one_child_pre_1980_avg_siblings', 1.5))
+                max_siblings = int(rules.get('one_child_pre_1980_max_siblings', 3))
+                sibling_probability = 70  # Higher chance of siblings
+            elif 1980 <= birth_year < 2000:
+                # Strict one-child policy period
+                avg_siblings = float(rules.get('one_child_1980_2000_avg_siblings', 0.3))
+                max_siblings = int(rules.get('one_child_1980_2000_max_siblings', 1))
+                sibling_probability = 25  # Very low chance of siblings
+            elif 2000 <= birth_year < 2016:
+                # One-child policy still in effect but slightly relaxed
+                avg_siblings = float(rules.get('one_child_2000_2016_avg_siblings', 0.4))
+                max_siblings = int(rules.get('one_child_2000_2016_max_siblings', 1))
+                sibling_probability = 30  # Low chance of siblings
+            elif 2016 <= birth_year < 2021:
+                # Two-child policy
+                avg_siblings = float(rules.get('one_child_2016_2021_avg_siblings', 0.8))
+                max_siblings = int(rules.get('one_child_2016_2021_max_siblings', 2))
+                sibling_probability = 55  # Moderate chance of siblings
+            else:
+                # Three-child policy (2021+)
+                avg_siblings = float(rules.get('one_child_2021_plus_avg_siblings', 1.0))
+                max_siblings = int(rules.get('one_child_2021_plus_max_siblings', 2))
+                sibling_probability = 65  # Higher chance of siblings
+
         # Use sibling_probability to determine if person has siblings
         if random.random() < (sibling_probability / 100.0):
             # Determine number of siblings using Gaussian distribution around average

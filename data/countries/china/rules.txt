@@ -1,4 +1,106 @@
 # --- Country status ---
-finished=false
+finished=true
 
+# --- Name rules ---
+name_order=surname+first
+surname_count=1
+surname_usage=always
 
+# --- Date format ---
+date_format=YYYY/MM/DD
+
+# --- Age rules ---
+life_expectancy=77
+min_age=18
+max_age=77
+
+# --- Fertility rules ---
+female_fertility_min_age=20
+female_fertility_max_age=40
+parent_min_age_gap=20
+parent_max_age_gap=42
+
+# --- Phone rules ---
+phone_country_code=+86
+phone_length=11
+phone_mobile_prefixes=13,14,15,16,17,18,19
+phone_format=### #### ####
+
+# --- Physical characteristics ---
+hair_colors=Black:88,Dark Brown:10,Brown:1.5,Gray:0.3,White:0.2
+eye_colors=Dark Brown:92,Brown:7,Black:0.8,Hazel:0.2
+skin_tones=Light:45,Medium:50,Olive:4,Tan:0.8,Dark:0.2
+
+# --- Religion ---
+religions=Non-religious:52,Buddhist:18,Folk religion/Taoist:21,Christian:5,Muslim:2,Other:2
+
+# --- Family configuration ---
+average_children=1.4
+min_children=1
+max_children=3
+average_siblings=0.6
+min_siblings=0
+max_siblings=3
+sibling_probability=40
+
+# --- Employment configuration ---
+unemployment_rate=5.2
+jobless_rate=1.5
+
+# --- Death Probability Configuration ---
+death_prob_parents_very_young=1
+death_prob_parents_young_adults=3
+death_prob_parents_adults=25
+death_prob_parents_middle_aged=45
+death_prob_parents_older_adults=65
+death_prob_parents_seniors=82
+death_prob_parents_elderly=93
+death_prob_children_very_young=0.8
+death_prob_children_young_adults=1.5
+death_prob_children_adults=2.5
+death_prob_children_middle_aged=3.5
+death_prob_children_older_adults=4.5
+death_prob_children_seniors=5.5
+death_prob_children_elderly=7
+death_prob_siblings_very_young=0.8
+death_prob_siblings_young_adults=2
+death_prob_siblings_adults=4
+death_prob_siblings_middle_aged=6
+death_prob_siblings_older_adults=12
+death_prob_siblings_seniors=22
+death_prob_siblings_elderly=35
+
+# --- Currency ---
+currency_symbol=¥
+currency_code=CNY
+
+# --- Social Class Configuration ---
+social_classes=low:30,middle:45,upper-middle:20,high:5
+salary_low=40000,80000
+salary_middle=80000,180000
+salary_upper-middle=180000,400000
+salary_high=400000,1500000
+pension_low=25000,55000
+pension_middle=50000,125000
+pension_upper-middle=120000,280000
+pension_high=280000,900000
+
+# --- Language Configuration ---
+min_languages=1
+max_languages=3
+available_languages=English:55,Cantonese:25,Japanese:8,Korean:5,Russian:3,French:2,German:1.5,Spanish:1
+language_level_basic=40
+language_level_intermediate=45
+language_level_advanced=15
+
+# --- One-Child Policy Special Rules ---
+one_child_pre_1980_avg_siblings=1.5
+one_child_pre_1980_max_siblings=3
+one_child_1980_2000_avg_siblings=0.3
+one_child_1980_2000_max_siblings=1
+one_child_2000_2016_avg_siblings=0.4
+one_child_2000_2016_max_siblings=1
+one_child_2016_2021_avg_siblings=0.8
+one_child_2016_2021_max_siblings=2
+one_child_2021_plus_avg_siblings=1.0
+one_child_2021_plus_max_siblings=2

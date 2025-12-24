@@ -1,0 +1,158 @@
+Software Engineer
+Factory Worker
+Sales Manager
+Accountant
+Teacher
+Doctor
+Nurse
+Chef
+Driver
+Electrician
+Plumber
+Mechanic
+Construction Worker
+Farmer
+Shop Assistant
+Waiter/Waitress
+Cleaner
+Security Guard
+Office Clerk
+Bank Teller
+Lawyer
+Architect
+Civil Engineer
+Marketing Manager
+HR Manager
+Graphic Designer
+Web Developer
+Data Analyst
+Project Manager
+Operations Manager
+Financial Analyst
+Business Analyst
+Customer Service Representative
+Logistics Coordinator
+Warehouse Manager
+Quality Control Inspector
+Production Supervisor
+IT Support Specialist
+Network Administrator
+Database Administrator
+System Administrator
+Pharmacist
+Dentist
+Physiotherapist
+Laboratory Technician
+Radiologist
+Surgeon
+Psychologist
+Social Worker
+Translator
+Interpreter
+Journalist
+Editor
+Writer
+Photographer
+Videographer
+Sound Engineer
+Musician
+Artist
+Actor/Actress
+Fashion Designer
+Interior Designer
+Product Designer
+UX/UI Designer
+Animator
+Game Developer
+Mobile App Developer
+DevOps Engineer
+Cloud Engineer
+Cybersecurity Analyst
+AI/ML Engineer
+Data Scientist
+Research Scientist
+University Professor
+School Principal
+Librarian
+Guidance Counselor
+Tutor
+Coach
+Personal Trainer
+Nutritionist
+Massage Therapist
+Beautician
+Hairdresser
+Makeup Artist
+Tailor
+Jeweler
+Watchmaker
+Carpenter
+Painter
+Welder
+HVAC Technician
+Telecom Technician
+Real Estate Agent
+Property Manager
+Insurance Agent
+Financial Advisor
+Investment Banker
+Stock Trader
+Economist
+Auditor
+Tax Consultant
+Procurement Specialist
+Supply Chain Manager
+Import/Export Manager
+Tour Guide
+Travel Agent
+Hotel Manager
+Restaurant Manager
+Barista
+Bartender
+Sommelier
+Event Planner
+Wedding Planner
+Florist
+Baker
+Butcher
+Fishmonger
+Greengrocer
+Pharmacist Assistant
+Medical Assistant
+Veterinarian
+Animal Caretaker
+Zookeeper
+Park Ranger
+Environmental Scientist
+Geologist
+Meteorologist
+Astronomer
+Pilot
+Flight Attendant
+Air Traffic Controller
+Ship Captain
+Maritime Engineer
+Train Driver
+Bus Driver
+Taxi Driver
+Delivery Driver
+Courier
+Postman
+Police Officer
+Firefighter
+Paramedic
+Military Officer
+Diplomat
+Government Official
+Judge
+Prosecutor
+Public Defender
+Notary
+Legal Secretary
+Paralegal
+Court Clerk
+Prison Officer
+Customs Officer
+Immigration Officer
+Border Patrol Agent
+Intelligence Analyst
