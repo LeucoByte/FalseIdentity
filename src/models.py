@@ -156,6 +156,33 @@ def display_name_with_transliteration(name: str, surname: str, country: str = "u
     Returns:
         Full name with transliteration if needed
     """
+    # CHINA: Surname comes first, and we need special Pinyin formatting
+    if country == 'china':
+        # Check if text contains non-ASCII characters
+        has_non_ascii = any(ord(char) > 127 for char in (surname + name))
+
+        if not has_non_ascii:
+            return f"{surname} {name}"
+
+        # Format: 姓名 (Surname Givenname) - no spaces in given name Pinyin
+        original = f"{surname} {name}"
+
+        if PYPINYIN_AVAILABLE:
+            # Transliterate surname and name separately
+            surname_pinyin = lazy_pinyin(surname, style=Style.NORMAL)
+            name_pinyin = lazy_pinyin(name, style=Style.NORMAL)
+
+            # Join surname with spaces, join name WITHOUT spaces
+            surname_romanized = ' '.join(surname_pinyin).title()
+            name_romanized = ''.join(name_pinyin).title()
+
+            transliterated = f"{surname_romanized} {name_romanized}"
+            return f"{original} ({transliterated})"
+        else:
+            # Fallback
+            return original
+
+    # For other countries: name + surname (original order)
     full_name = f"{name} {surname}"
     return display_with_transliteration(full_name, country)
 
@@ -210,6 +237,8 @@ def translate(text: str, country: str) -> str:
             if PYPINYIN_AVAILABLE:
                 # Use pypinyin for Pinyin transliteration
                 pinyin_list = lazy_pinyin(text, style=Style.NORMAL)
+                # Filter out spaces from pinyin_list (they cause extra spaces in output)
+                pinyin_list = [p for p in pinyin_list if p.strip()]
                 return ' '.join(pinyin_list).title()
             else:
                 # Fallback to unidecode
@@ -496,7 +525,11 @@ class Identity:
 
         # Build formatted lines
         # Display names with transliteration if non-ASCII (e.g., "Имя (Imya)")
-        display_name = display_with_transliteration(self.full_name, self.country)
+        # For China, use special formatting with proper name/surname handling
+        if self.country == 'china':
+            display_name = display_name_with_transliteration(self.first_name, ' '.join(self.surnames), self.country)
+        else:
+            display_name = display_with_transliteration(self.full_name, self.country)
         name_line = pad_line("Full Name:       ", display_name, BOLD + YELLOW, RESET)
         gender_line = pad_line("Gender:          ", self.gender.capitalize())
         dob_text = f"{self.date_of_birth} ({self.age} years old)"

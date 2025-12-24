@@ -86,6 +86,7 @@ Journalist:bachelor:Journalism
 Lawyer:bachelor:Law
 Doctor:doctorate:Medicine
 Surgeon:doctorate:Medicine
+Obstetrician:doctorate:Medicine
 Dentist:bachelor:Dentistry
 Veterinarian:bachelor:Veterinary Medicine
 Pharmacist:bachelor:Pharmacy
