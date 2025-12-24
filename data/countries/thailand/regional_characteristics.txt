@@ -1,0 +1,23 @@
+# Regional and Historical Characteristics for Thailand
+# Format: characteristic_text|min_age|max_age|gender|probability
+# gender: male, female, both
+# probability: 0.0-1.0 (chance of applying)
+# CRITICAL: Current year is 2025. Min_age = age when CONSCIOUSLY experienced (not just alive)
+# For "grew up" events: need 10+ years of conscious experience
+# For "witnessed/experienced" events: need to be 14+ (teenager awareness)
+# For "remembers" events: need to be 7+ (childhood memories)
+
+Grew up under King Bhumibol Adulyadej's reign|18|999|both|0.95
+Witnessed the 1997 Asian Financial Crisis|42|999|both|0.8
+Lived through the 2006 military coup|33|999|both|0.85
+Remembers the 2004 Indian Ocean tsunami|28|999|both|0.75
+Witnessed the Yellow Shirt protests (2008)|31|999|both|0.6
+Lived through the Red Shirt protests (2010)|29|999|both|0.65
+Affected by the 2011 Bangkok floods|28|999|both|0.7
+Witnessed the 2014 military coup|25|999|both|0.85
+Remembers King Bhumibol's passing (2016)|23|999|both|0.95
+Lived through the COVID-19 pandemic restrictions|18|999|both|0.9
+Grew up with traditional Buddhist values|25|999|both|0.9
+Experienced rapid Bangkok modernization|20|999|both|0.6
+Witnessed tourism boom before 2020|18|999|both|0.7
+Served in military conscription|21|45|male|0.4
