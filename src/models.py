@@ -52,6 +52,41 @@ def transliterate(text: str) -> str:
     return ''.join(result)
 
 
+def display_with_transliteration(text: str) -> str:
+    """
+    Display text with transliteration if it contains non-ASCII characters.
+
+    Args:
+        text: Original text
+
+    Returns:
+        "Original (Transliterated)" if non-ASCII, otherwise just the original text
+    """
+    # Check if text contains non-ASCII characters
+    has_non_ascii = any(ord(char) > 127 for char in text)
+
+    if has_non_ascii:
+        transliterated = transliterate(text)
+        return f"{text} ({transliterated})"
+    else:
+        return text
+
+
+def display_name_with_transliteration(name: str, surname: str) -> str:
+    """
+    Display full name with transliteration if it contains non-ASCII characters.
+
+    Args:
+        name: First name
+        surname: Surname(s)
+
+    Returns:
+        Full name with transliteration if needed
+    """
+    full_name = f"{name} {surname}"
+    return display_with_transliteration(full_name)
+
+
 def calculate_time_ago(date_str: str) -> str:
     """
     Calculate time elapsed from a date string to now.
@@ -243,8 +278,8 @@ class Identity:
                 hobbies_str = ""
 
         # Build formatted lines
-        # Transliterate names for display (Cyrillic → Latin)
-        display_name = transliterate(self.full_name)
+        # Display names with transliteration if non-ASCII (e.g., "Имя (Imya)")
+        display_name = display_with_transliteration(self.full_name)
         name_line = pad_line("Full Name:       ", display_name, BOLD + YELLOW, RESET)
         gender_line = pad_line("Gender:          ", self.gender.capitalize())
         dob_text = f"{self.date_of_birth} ({self.age} years old)"
@@ -261,7 +296,7 @@ class Identity:
         religion_line = pad_line("Religion:        ", self.religion, BOLD + WHITE, RESET)
 
         # Location and contact
-        display_city = transliterate(self.city)
+        display_city = display_with_transliteration(self.city)
         location_text = f"{display_city}, {RED}{self.country.upper()}{RESET}"
         location_line = pad_line("Location:        ", location_text)
 
@@ -269,7 +304,7 @@ class Identity:
         postal_text = self.postal_code if self.postal_code else 'N/A'
         postal_line = pad_line("Postal Code:     ", postal_text, BOLD + WHITE, RESET)
 
-        display_nearby = transliterate(self.nearby_town) if self.nearby_town else 'N/A'
+        display_nearby = display_with_transliteration(self.nearby_town) if self.nearby_town else 'N/A'
         nearby_line = pad_line("Nearby:          ", display_nearby, BOLD + YELLOW, RESET)
 
         # Job display - always show both current and previous
@@ -451,7 +486,7 @@ class Identity:
                         # Deceased: show birth-death dates and age at death
                         death_date = father.get('death_date', 'N/A')
                         time_ago = calculate_time_ago(death_date) if death_date != 'N/A' else ""
-                        father_text = f"{transliterate(father['name'])} {transliterate(father['surname'])} (Deceased)"
+                        father_text = f"{display_name_with_transliteration(father['name'], father['surname'])} (Deceased)"
                         family_block += pad_line("Father:          ", father_text, BOLD + RED, RESET) + "\n"
                         death_info = f"{father.get('birth_date', 'N/A')} - {death_date} {time_ago} (Died at {father.get('age_at_death', 'N/A')} years old)"
                         family_block += pad_line("                 ", death_info, WHITE, RESET) + "\n"
@@ -459,7 +494,7 @@ class Identity:
                             family_block += pad_line("                 ", f"Cause: {father['cause_of_death']}", WHITE, RESET) + "\n"
                     else:
                         # Living: show birth date and current age
-                        father_text = f"{transliterate(father['name'])} {transliterate(father['surname'])}"
+                        father_text = display_name_with_transliteration(father['name'], father['surname'])
                         current_age = father.get('current_age', 'N/A')
                         family_block += pad_line("Father:          ", father_text, BOLD + WHITE, RESET) + "\n"
                         family_block += pad_line("                 ", f"Alive - {father.get('birth_date', 'N/A')} ({current_age} years old)", WHITE, RESET) + "\n"
@@ -472,7 +507,7 @@ class Identity:
                         # Deceased: show birth-death dates and age at death
                         death_date = mother.get('death_date', 'N/A')
                         time_ago = calculate_time_ago(death_date) if death_date != 'N/A' else ""
-                        mother_text = f"{transliterate(mother['name'])} {transliterate(mother['surname'])} (Deceased)"
+                        mother_text = f"{display_name_with_transliteration(mother['name'], mother['surname'])} (Deceased)"
                         family_block += pad_line("Mother:          ", mother_text, BOLD + RED, RESET) + "\n"
                         death_info = f"{mother.get('birth_date', 'N/A')} - {death_date} {time_ago} (Died at {mother.get('age_at_death', 'N/A')} years old)"
                         family_block += pad_line("                 ", death_info, WHITE, RESET) + "\n"
@@ -480,7 +515,7 @@ class Identity:
                             family_block += pad_line("                 ", f"Cause: {mother['cause_of_death']}", WHITE, RESET) + "\n"
                     else:
                         # Living: show birth date and current age
-                        mother_text = f"{transliterate(mother['name'])} {transliterate(mother['surname'])}"
+                        mother_text = display_name_with_transliteration(mother['name'], mother['surname'])
                         current_age = mother.get('current_age', 'N/A')
                         family_block += pad_line("Mother:          ", mother_text, BOLD + WHITE, RESET) + "\n"
                         family_block += pad_line("                 ", f"Alive - {mother.get('birth_date', 'N/A')} ({current_age} years old)", WHITE, RESET) + "\n"
@@ -512,11 +547,11 @@ class Identity:
 
                     if sibling.get("deceased"):
                         # Deceased sibling
-                        sibling_text = f"{transliterate(sibling['name'])} {transliterate(sibling_surname_str)} ({sibling['gender']}){twin_marker} (Deceased)".strip()
+                        sibling_text = f"{display_name_with_transliteration(sibling['name'], sibling_surname_str)} ({sibling['gender']}){twin_marker} (Deceased)".strip()
                         color = BOLD + RED
                     else:
                         # Living sibling
-                        sibling_text = f"{transliterate(sibling['name'])} {transliterate(sibling_surname_str)} ({sibling['gender']}){twin_marker}".strip()
+                        sibling_text = f"{display_name_with_transliteration(sibling['name'], sibling_surname_str)} ({sibling['gender']}){twin_marker}".strip()
                         color = BOLD + YELLOW
 
                     if i == 0:
@@ -544,7 +579,7 @@ class Identity:
             if marital_status in ("Married", "Girlfriend", "Boyfriend") and self.family.get("partner"):
                 partner = self.family["partner"]
                 partner_surname_str = partner.get("surname", "")
-                partner_text = f"{transliterate(partner['name'])} {transliterate(partner_surname_str)} ({partner['gender']})"
+                partner_text = f"{display_name_with_transliteration(partner['name'], partner_surname_str)} ({partner['gender']})"
                 family_block += pad_line("Partner:         ", partner_text, BOLD + WHITE, RESET) + "\n"
 
                 # Show birth date and age for partner
@@ -574,7 +609,7 @@ class Identity:
                     # Show ex-partner info
                     if ex.get("deceased"):
                         # Ex-partner is deceased
-                        ex_text = f"{transliterate(ex['name'])} {transliterate(ex_surname_str)} ({ex['gender']}) (Deceased)"
+                        ex_text = f"{display_name_with_transliteration(ex['name'], ex_surname_str)} ({ex['gender']}) (Deceased)"
                         family_block += pad_line("  Ex-Partner:    ", ex_text, BOLD + RED, RESET) + "\n"
                         death_date = ex.get('death_date', 'N/A')
                         time_ago = calculate_time_ago(death_date) if death_date != 'N/A' else ""
@@ -582,7 +617,7 @@ class Identity:
                         family_block += pad_line("                 ", death_info, YELLOW, RESET) + "\n"
                     else:
                         # Ex-partner is alive
-                        ex_text = f"{transliterate(ex['name'])} {transliterate(ex_surname_str)} ({ex['gender']})"
+                        ex_text = f"{display_name_with_transliteration(ex['name'], ex_surname_str)} ({ex['gender']})"
                         family_block += pad_line("  Ex-Partner:    ", ex_text, YELLOW, RESET) + "\n"
                         current_age = ex.get('current_age', 'N/A')
                         family_block += pad_line("                 ", f"Alive - {ex.get('birth_date', 'N/A')} ({current_age} years old)", YELLOW, RESET) + "\n"
@@ -608,7 +643,7 @@ class Identity:
                 family_block += pad_line("Past Relations:  ", "", BOLD + MAGENTA, RESET) + "\n"
                 for i, rel in enumerate(relationship_history, 1):
                     rel_surname_str = rel.get("surname", "")
-                    rel_text = f"{transliterate(rel['name'])} {transliterate(rel_surname_str)} ({rel['gender']})"
+                    rel_text = f"{display_name_with_transliteration(rel['name'], rel_surname_str)} ({rel['gender']})"
                     family_block += pad_line(f"  [{i}] Partner:   ", rel_text, YELLOW, RESET) + "\n"
 
                     # Show birth date and current age
@@ -691,10 +726,10 @@ class Identity:
                             child_surname_str = child.get("surname", "")
 
                         if child.get("deceased"):
-                            child_text = f"{child['name']} {child_surname_str} ({child['gender']}) (Deceased)".strip()
+                            child_text = f"{display_name_with_transliteration(child['name'], child_surname_str)} ({child['gender']}) (Deceased)".strip()
                             color = BOLD + RED
                         else:
-                            child_text = f"{transliterate(child['name'])} {transliterate(child_surname_str)} ({child['gender']})".strip()
+                            child_text = f"{display_name_with_transliteration(child['name'], child_surname_str)} ({child['gender']})".strip()
                             color = BOLD + WHITE
 
                         if i == 0:
