@@ -2397,8 +2397,13 @@ class IdentityGenerator:
 
         languages = []
 
-        # Always add native language (Spanish for Spain)
-        native_lang = "Spanish" if country.lower() == "spain" else "Native"
+        # Always add native language
+        country_languages = {
+            "spain": "Spanish",
+            "russia": "Russian",
+            "thailand": "Thai"
+        }
+        native_lang = country_languages.get(country.lower(), "Native")
         languages.append({
             "language": native_lang,
             "level": "Native",

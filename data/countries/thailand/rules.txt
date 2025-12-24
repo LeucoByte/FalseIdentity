@@ -1,5 +1,5 @@
 # --- Country status ---
-finished=false
+finished=true
 
 # --- Name rules ---
 name_order=first+surname
@@ -15,12 +15,12 @@ min_age=18
 max_age=78
 
 # --- Fertility rules ---
-# Female fertility limits (based on medical reality)
-female_fertility_min_age=15
+# Female fertility limits (based on Thai social reality)
+female_fertility_min_age=16
 female_fertility_max_age=45
 # Parent age limits (to avoid unrealistic parent-child gaps)
-parent_min_age_gap=18
-parent_max_age_gap=45
+parent_min_age_gap=16
+parent_max_age_gap=50
 
 # --- Phone rules ---
 phone_country_code=+66
@@ -38,23 +38,92 @@ skin_tones=Medium:40,Tan:35,Light:15,Olive:7,Dark:3
 
 # --- Religion ---
 # Format: Religion:Probability (based on Thai demographics)
-# Thailand is predominantly Buddhist (94.5%)
+# Thailand is predominantly Theravada Buddhist (94.5%)
 religions=Buddhist:94.5,Muslim:4.3,Christian:0.7,Hindu:0.3,Atheist:0.1,Other:0.1
 
 # --- Family configuration ---
 # Average number of children in Thailand (declining, currently ~1.5)
 average_children=1.5
 min_children=1
-max_children=3
+max_children=4
 
 # Siblings configuration (based on average_children)
-average_siblings=1.5
+average_siblings=1.8
 min_siblings=0
-max_siblings=3
+max_siblings=4
+sibling_probability=70
 
 # --- Employment configuration ---
 # Unemployment and jobless probabilities
 unemployment_rate=1.2
 jobless_rate=1.0
-# Probability of being orphan (very low)
-orphan_probability=0.5
+
+# --- Death Probability Configuration ---
+# Age-based death probabilities for family members (%)
+# Format: age_bucket:probability
+# Parents death probability (based on identity's age)
+death_prob_parents_very_young=2
+death_prob_parents_young_adults=6
+death_prob_parents_adults=25
+death_prob_parents_middle_aged=45
+death_prob_parents_older_adults=65
+death_prob_parents_seniors=80
+death_prob_parents_elderly=92
+
+# Children death probability (lower than parents)
+death_prob_children_very_young=1
+death_prob_children_young_adults=2
+death_prob_children_adults=3
+death_prob_children_middle_aged=4
+death_prob_children_older_adults=5
+death_prob_children_seniors=7
+death_prob_children_elderly=10
+
+# Siblings death probability (based on identity's age)
+death_prob_siblings_very_young=1
+death_prob_siblings_young_adults=3
+death_prob_siblings_adults=5
+death_prob_siblings_middle_aged=8
+death_prob_siblings_older_adults=12
+death_prob_siblings_seniors=20
+death_prob_siblings_elderly=35
+
+# --- Currency ---
+currency_symbol=฿
+currency_code=THB
+
+# --- Social Class Configuration ---
+# Format: ClassName:Probability (probabilities should sum to 100)
+# Based on Thai socioeconomic distribution
+social_classes=low:40,middle:40,upper-middle:15,high:5
+
+# Salary ranges per social class (annual, in Thai Baht)
+# Format: min,max
+salary_low=120000,240000
+salary_middle=240000,600000
+salary_upper-middle=600000,1500000
+salary_high=1500000,5000000
+
+# Pension ranges per social class (annual, in Thai Baht)
+# Thailand has limited pension system, typically 40-60% of previous salary
+# Format: min,max
+pension_low=50000,120000
+pension_middle=100000,300000
+pension_upper-middle=250000,750000
+pension_high=600000,2000000
+
+# --- Language Configuration ---
+# Minimum and maximum number of languages (including native)
+min_languages=1
+max_languages=4
+
+# Languages spoken in Thailand and commonly taught
+# Format: Language:Probability
+# Native language (Thai) is always included automatically
+available_languages=English:45,Chinese:15,Japanese:8,French:3,German:2,Malay:5,Lao:8,Burmese:3,Khmer:2,Korean:4
+
+# Language level probabilities
+# Format: Level:Probability (for non-native languages)
+language_level_basic=40
+language_level_intermediate=45
+language_level_advanced=15

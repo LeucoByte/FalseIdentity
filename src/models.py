@@ -32,13 +32,39 @@ CYRILLIC_TO_LATIN = {
     'я': 'ya'
 }
 
+# Transliteration map for Thai to Latin (RTGS - Royal Thai General System)
+THAI_TO_LATIN = {
+    # Consonants
+    'ก': 'k', 'ข': 'kh', 'ฃ': 'kh', 'ค': 'kh', 'ฅ': 'kh', 'ฆ': 'kh',
+    'ง': 'ng',
+    'จ': 'ch', 'ฉ': 'ch', 'ช': 'ch', 'ซ': 's', 'ฌ': 'ch', 'ญ': 'y',
+    'ฎ': 'd', 'ฏ': 't', 'ฐ': 'th', 'ฑ': 'th', 'ฒ': 'th', 'ณ': 'n',
+    'ด': 'd', 'ต': 't', 'ถ': 'th', 'ท': 'th', 'ธ': 'th', 'น': 'n',
+    'บ': 'b', 'ป': 'p', 'ผ': 'ph', 'ฝ': 'f', 'พ': 'ph', 'ฟ': 'f', 'ภ': 'ph', 'ม': 'm',
+    'ย': 'y', 'ร': 'r', 'ฤ': 'rue', 'ล': 'l', 'ฦ': 'lue',
+    'ว': 'w', 'ศ': 's', 'ษ': 's', 'ส': 's', 'ห': 'h', 'ฬ': 'l', 'อ': 'o', 'ฮ': 'h',
+    # Vowels (independent form)
+    'ะ': 'a', 'ั': 'a', 'า': 'a', 'ำ': 'am',
+    'ิ': 'i', 'ี': 'i', 'ึ': 'ue', 'ื': 'ue', 'ุ': 'u', 'ู': 'u',
+    'เ': 'e', 'แ': 'ae', 'โ': 'o', 'ใ': 'ai', 'ไ': 'ai',
+    'ฯ': '...', 'ๆ': '2', '๏': '...',
+    # Numbers (convert to Arabic numerals)
+    '๐': '0', '๑': '1', '๒': '2', '๓': '3', '๔': '4',
+    '๕': '5', '๖': '6', '๗': '7', '๘': '8', '๙': '9',
+    # Tone marks and other diacritics (remove them for simplicity)
+    '่': '', '้': '', '๊': '', '๋': '',
+    '์': '', 'ํ': '', 'ั': '', 'ิ': 'i', 'ี': 'i', 'ึ': 'ue', 'ื': 'ue',
+    'ุ': 'u', 'ู': 'u', 'ๅ': '',
+}
+
 
 def transliterate(text: str) -> str:
     """
-    Transliterate Cyrillic characters to Latin.
+    Transliterate non-Latin characters to Latin.
+    Supports Cyrillic and Thai scripts.
 
     Args:
-        text: Text that may contain Cyrillic characters
+        text: Text that may contain Cyrillic or Thai characters
 
     Returns:
         Transliterated text with only ASCII characters
@@ -47,6 +73,8 @@ def transliterate(text: str) -> str:
     for char in text:
         if char in CYRILLIC_TO_LATIN:
             result.append(CYRILLIC_TO_LATIN[char])
+        elif char in THAI_TO_LATIN:
+            result.append(THAI_TO_LATIN[char])
         else:
             result.append(char)
     return ''.join(result)
@@ -589,10 +617,12 @@ class Identity:
                 # Show relationship start date
                 if partner.get('start_date'):
                     time_ago = calculate_time_ago(partner['start_date'])
+                    # Remove " ago" and add parentheses
+                    time_display = time_ago.replace(" ago", "")
                     if marital_status == "Married":
-                        family_block += pad_line("Marriage Date:   ", f"{partner['start_date']} {time_ago}", BOLD + YELLOW, RESET) + "\n"
+                        family_block += pad_line("Marriage Date:   ", f"{partner['start_date']} ({time_display})", BOLD + YELLOW, RESET) + "\n"
                     else:  # Girlfriend/Boyfriend
-                        family_block += pad_line("Together since:  ", f"{partner['start_date']} {time_ago}", BOLD + YELLOW, RESET) + "\n"
+                        family_block += pad_line("Together since:  ", f"{partner['start_date']} ({time_display})", BOLD + YELLOW, RESET) + "\n"
 
             # Ex-Partners (for divorced/remarried people)
             ex_partners = self.family.get("ex_partners", [])
