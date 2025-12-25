@@ -1,0 +1,24 @@
+# Regional and Historical Characteristics for Argentina
+# Format: characteristic_text|min_age|max_age|gender|probability
+# gender: male, female, both
+# probability: 0.0-1.0 (chance of applying)
+# CRITICAL: Current year is 2025. Min_age = age when CONSCIOUSLY experienced (not just alive)
+# For "grew up" events: need 10+ years of conscious experience
+# For "witnessed/experienced" events: need to be 14+ (teenager awareness)
+# For "remembers" events: need to be 7+ (childhood memories)
+
+Completed mandatory military service (conscription)|42|65|male|0.90
+Grew up during the military dictatorship (1976-1983)|56|999|both|1.0
+Witnessed the Falklands/Malvinas War (1982)|57|999|both|0.85
+Remembers hyperinflation of the late 1980s|50|999|both|0.85
+Grew up with the 1:1 peso-dollar convertibility|37|50|both|0.90
+Experienced the 2001 economic crisis ("corralito")|38|999|both|0.95
+Witnessed the December 2001 protests and riots|38|999|both|0.80
+Grew up with high inflation as normal|18|40|both|0.95
+Witnessed the COVID-19 strict lockdowns in Argentina|19|999|both|0.85
+Grew up with football as a central part of culture|18|999|both|0.95
+Remembers the 1978 World Cup in Argentina|61|999|both|0.60
+Witnessed Maradona's 1986 World Cup victory|53|999|both|0.75
+Experienced the economic boom of the early 2000s|30|45|both|0.65
+Witnessed the legalization of same-sex marriage (2010)|29|999|both|0.60
+Grew up with mate as a daily social ritual|18|999|both|0.85

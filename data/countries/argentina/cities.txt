@@ -1,0 +1,389 @@
+Buenos Aires|C1000
+Palermo, Buenos Aires|C1414
+Recoleta, Buenos Aires|C1113
+Belgrano, Buenos Aires|C1426
+Núñez, Buenos Aires|C1429
+Caballito, Buenos Aires|C1406
+Flores, Buenos Aires|C1406
+Villa Crespo, Buenos Aires|C1414
+Almagro, Buenos Aires|C1172
+Balvanera, Buenos Aires|C1185
+San Telmo, Buenos Aires|C1100
+La Boca, Buenos Aires|C1155
+Puerto Madero, Buenos Aires|C1107
+Retiro, Buenos Aires|C1002
+Monserrat, Buenos Aires|C1070
+San Nicolás, Buenos Aires|C1041
+Barracas, Buenos Aires|C1280
+Parque Patricios, Buenos Aires|C1437
+Villa Urquiza, Buenos Aires|C1431
+Villa Devoto, Buenos Aires|C1417
+Villa Pueyrredón, Buenos Aires|C1419
+Colegiales, Buenos Aires|C1414
+Agronomía, Buenos Aires|C1427
+Liniers, Buenos Aires|C1408
+Mataderos, Buenos Aires|C1440
+Flores, Buenos Aires|C1406
+Floresta, Buenos Aires|C1406
+Vélez Sársfield, Buenos Aires|C1407
+Versalles, Buenos Aires|C1408
+Villa Luro, Buenos Aires|C1408
+Villa Santa Rita, Buenos Aires|C1408
+Parque Avellaneda, Buenos Aires|C1440
+Villa Soldati, Buenos Aires|C1437
+Nueva Pompeya, Buenos Aires|C1437
+Boedo, Buenos Aires|C1239
+Constitución, Buenos Aires|C1228
+San Cristóbal, Buenos Aires|C1255
+Parque Chacabuco, Buenos Aires|C1255
+Parque Chas, Buenos Aires|C1427
+Chacarita, Buenos Aires|C1427
+Paternal, Buenos Aires|C1414
+Villa del Parque, Buenos Aires|C1417
+Villa General Mitre, Buenos Aires|C1417
+Monte Castro, Buenos Aires|C1419
+Saavedra, Buenos Aires|C1430
+Coghlan, Buenos Aires|C1430
+La Paternal, Buenos Aires|C1414
+Villa Ortúzar, Buenos Aires|C1414
+Córdoba|X5000
+Nueva Córdoba, Córdoba|X5000
+Centro, Córdoba|X5000
+Alta Córdoba, Córdoba|X5003
+Villa El Libertador, Córdoba|X5008
+Villa Allende, Córdoba|X5105
+Carlos Paz, Córdoba|X5152
+Jesús María, Córdoba|X5220
+Río Cuarto, Córdoba|X5800
+Villa María, Córdoba|X5900
+San Francisco, Córdoba|X2400
+Bell Ville, Córdoba|X2550
+Rosario|S2000
+Centro, Rosario|S2000
+Fisherton, Rosario|S2004
+Echesortu, Rosario|S2002
+Pichincha, Rosario|S2007
+Alberdi, Rosario|S2006
+República de la Sexta, Rosario|S2000
+Abasto, Rosario|S2000
+Arroyito, Rosario|S2200
+Belgrano, Rosario|S2003
+Remedios de Escalada, Rosario|S2008
+Santa Fe|S3000
+Santo Tomé, Santa Fe|S3016
+Esperanza, Santa Fe|S3080
+Rafaela, Santa Fe|S2300
+Reconquista, Santa Fe|S3560
+Venado Tuerto, Santa Fe|S2600
+Mendoza|M5500
+Ciudad, Mendoza|M5500
+Godoy Cruz, Mendoza|M5501
+Guaymallén, Mendoza|M5521
+Las Heras, Mendoza|M5539
+Maipú, Mendoza|M5515
+Luján de Cuyo, Mendoza|M5507
+San Rafael, Mendoza|M5600
+San Martín, Mendoza|M5570
+Lavalle, Mendoza|M5533
+Tunuyán, Mendoza|M5560
+Tucumán|T4000
+San Miguel de Tucumán|T4000
+Yerba Buena, Tucumán|T4107
+Banda del Río Salí, Tucumán|T4105
+Tafí Viejo, Tucumán|T4103
+Lules, Tucumán|T4128
+Concepción, Tucumán|T4146
+Famaillá, Tucumán|T4132
+Aguilares, Tucumán|T4152
+Monteros, Tucumán|T4142
+Salta|A4400
+Capital, Salta|A4400
+Cerrillos, Salta|A4403
+San Lorenzo, Salta|A4421
+General Güemes, Salta|A4430
+Metán, Salta|A4440
+Tartagal, Salta|A4560
+Orán, Salta|A4530
+Cafayate, Salta|A4427
+Mar del Plata|B7600
+Centro, Mar del Plata|B7600
+Playa Grande, Mar del Plata|B7607
+Los Troncos, Mar del Plata|B7605
+Punta Mogotes, Mar del Plata|B7609
+Batán, Mar del Plata|B7601
+Sierra de los Padres, Mar del Plata|B7601
+La Plata|B1900
+Casco Urbano, La Plata|B1900
+City Bell, La Plata|B1896
+Gonnet, La Plata|B1897
+Villa Elisa, La Plata|B1894
+Tolosa, La Plata|B1900
+Los Hornos, La Plata|B1900
+Ensenada, La Plata|B1925
+Berisso, La Plata|B1923
+Bahía Blanca|B8000
+Centro, Bahía Blanca|B8000
+Villa Mitre, Bahía Blanca|B8003
+Palihue, Bahía Blanca|B8109
+Punta Alta, Bahía Blanca|B8109
+Tandil|B7000
+Olavarría|B7400
+Junín|B6000
+Quilmes|B1878
+Centro, Quilmes|B1878
+Bernal, Quilmes|B1876
+San Francisco Solano, Quilmes|B1881
+Ezpeleta, Quilmes|B1882
+Lomas de Zamora|B1832
+Banfield, Lomas de Zamora|B1828
+Lanús|B1824
+Remedios de Escalada, Lanús|B1826
+Avellaneda|B1870
+Wilde, Avellaneda|B1875
+Sarandí, Avellaneda|B1872
+San Isidro|B1642
+Martínez, San Isidro|B1640
+Acassuso, San Isidro|B1641
+Beccar, San Isidro|B1643
+La Lucila, San Isidro|B1636
+Vicente López|B1638
+Olivos, Vicente López|B1636
+Florida, Vicente López|B1602
+Munro, Vicente López|B1605
+Carapachay, Vicente López|B1607
+San Fernando|B1646
+Victoria, San Fernando|B1644
+Virreyes, San Fernando|B1645
+Tigre|B1648
+Don Torcuato, Tigre|B1611
+El Talar, Tigre|B1618
+General Pacheco, Tigre|B1617
+Nordelta, Tigre|B1670
+San Martín|B1650
+Villa Ballester, San Martín|B1653
+Villa Lynch, San Martín|B1672
+Villa Maipú, San Martín|B1602
+Tres de Febrero|B1674
+Caseros, Tres de Febrero|B1678
+Ciudad Jardín El Libertador, Tres de Febrero|B1674
+El Palomar, Tres de Febrero|B1684
+Ciudadela, Tres de Febrero|B1702
+Santos Lugares, Tres de Febrero|B1676
+Hurlingham|B1686
+Villa Tesei, Hurlingham|B1688
+William Morris, Hurlingham|B1688
+Ituzaingó|B1714
+Castelar, Ituzaingó|B1712
+Villa Udaondo, Ituzaingó|B1714
+Morón|B1708
+Castelar, Morón|B1712
+El Palomar, Morón|B1684
+Haedo, Morón|B1706
+Moreno|B1744
+Paso del Rey, Moreno|B1742
+Trujui, Moreno|B1748
+Francisco Álvarez, Moreno|B1746
+Merlo|B1722
+San Antonio de Padua, Merlo|B1718
+Mariano Acosta, Merlo|B1727
+Libertad, Merlo|B1716
+La Matanza|B1754
+Ramos Mejía, La Matanza|B1704
+San Justo, La Matanza|B1754
+Lomas del Mirador, La Matanza|B1752
+Villa Luzuriaga, La Matanza|B1753
+Ciudad Evita, La Matanza|B1778
+González Catán, La Matanza|B1759
+Rafael Castillo, La Matanza|B1755
+Esteban Echeverría|B1842
+Monte Grande, Esteban Echeverría|B1842
+Canning, Esteban Echeverría|B1804
+El Jagüel, Esteban Echeverría|B1843
+9 de Abril, Esteban Echeverría|B1846
+Florencio Varela|B1888
+Zeballos, Florencio Varela|B1889
+Villa Brown, Florencio Varela|B1889
+Berazategui|B1880
+Plátanos, Berazატegui|B1885
+Hudson, Berazategui|B1885
+Pereyra, Berazategui|B1893
+Ranelagh, Berazategui|B1886
+Almirante Brown|B1846
+Adrogué, Almirante Brown|B1846
+Burzaco, Almirante Brown|B1852
+Glew, Almirante Brown|B1856
+Longchamps, Almirante Brown|B1854
+Claypole, Almirante Brown|B1849
+Malvinas Argentinas|B1611
+Grand Bourg, Malvinas Argentinas|B1615
+Pablo Nogués, Malvinas Argentinas|B1613
+Villa de Mayo, Malvinas Argentinas|B1612
+Los Polvorines, Malvinas Argentinas|B1613
+José C. Paz|B1665
+San Miguel|B1663
+Bella Vista, San Miguel|B1661
+Muñiz, San Miguel|B1663
+Pilar|B1629
+Villa Rosa, Pilar|B1630
+Tortuguitas, Pilar|B1667
+Del Viso, Pilar|B1669
+Presidente Derqui, Pilar|B1635
+Escobar|B1625
+Belén de Escobar|B1625
+Garín, Escobar|B1619
+Ingeniero Maschwitz, Escobar|B1623
+Matheu, Escobar|B1727
+Zárate|B2800
+Campana|B2804
+Luján|B6700
+Mercedes|B6600
+Chivilcoy|B6620
+Bragado|B6640
+San Pedro|B2930
+Pergamino|B2700
+San Nicolás|B2900
+Ramallo|B2915
+Baradero|B2942
+San Antonio de Areco|B2760
+Chacabuco|B6740
+Junín|B6000
+Lobos|B7240
+Cañuelas|B1814
+General Rodríguez|B1748
+Luján|B6700
+Navarro|B6605
+Saladillo|B7260
+25 de Mayo|B6660
+Trenque Lauquen|B6400
+Bolívar|B6550
+Daireaux|B6555
+Pehuajó|B6450
+Carlos Casares|B6530
+Tres Arroyos|B7500
+Azul|B7300
+Necochea|B7630
+Balcarce|B7620
+Maipú|B7160
+Dolores|B7100
+General Madariaga|B7163
+Villa Gesell|B7165
+Pinamar|B7167
+San Clemente del Tuyú|B7105
+Santa Teresita|B7107
+Las Toninas|B7106
+San Bernardo|B7111
+Mar de Ajó|B7109
+Neuquén|Q8300
+Capital, Neuquén|Q8300
+Centenario, Neuquén|Q8309
+Plottier, Neuquén|Q8316
+Cutral-Có, Neuquén|Q8322
+Plaza Huincul, Neuquén|Q8318
+Zapala, Neuquén|Q8340
+San Martín de los Andes, Neuquén|Q8370
+Villa La Angostura, Neuquén|Q8407
+Junín de los Andes, Neuquén|Q8371
+Río Negro|R8500
+Viedma, Río Negro|R8500
+San Carlos de Bariloche, Río Negro|R8400
+General Roca, Río Negro|R8332
+Cipolletti, Río Negro|R8324
+Allen, Río Negro|R8328
+Villa Regina, Río Negro|R8336
+Choele Choel, Río Negro|R8360
+El Bolsón, Río Negro|R8430
+Cinco Saltos, Río Negro|R8303
+Chubut|U9100
+Rawson, Chubut|U9103
+Trelew, Chubut|U9100
+Puerto Madryn, Chubut|U9120
+Comodoro Rivadavia, Chubut|U9000
+Esquel, Chubut|U9200
+Sarmiento, Chubut|U9020
+Gaiman, Chubut|U9105
+Santa Cruz|Z9400
+Río Gallegos, Santa Cruz|Z9400
+Caleta Olivia, Santa Cruz|Z9011
+Pico Truncado, Santa Cruz|Z9015
+Puerto Deseado, Santa Cruz|Z9050
+Puerto San Julián, Santa Cruz|Z9310
+El Calafate, Santa Cruz|Z9405
+Ushuaia|V9410
+Río Grande|V9420
+Tolhuin|V9414
+Formosa|P3600
+Clorinda, Formosa|P3610
+Pirané, Formosa|P3630
+El Colorado, Formosa|P3620
+Misiones|N3300
+Posadas, Misiones|N3300
+Eldorado, Misiones|N3380
+Puerto Iguazú, Misiones|N3370
+Oberá, Misiones|N3360
+Apóstoles, Misiones|N3350
+Garupá, Misiones|N3301
+San Vicente, Misiones|N3342
+Corrientes|W3400
+Capital, Corrientes|W3400
+Goya, Corrientes|W3450
+Paso de los Libres, Corrientes|W3230
+Curuzú Cuatiá, Corrientes|W3460
+Mercedes, Corrientes|W3470
+Santo Tomé, Corrientes|W3340
+Bella Vista, Corrientes|W3432
+Esquina, Corrientes|W3196
+Monte Caseros, Corrientes|W3220
+Chaco|H3500
+Resistencia, Chaco|H3500
+Barranqueras, Chaco|H3503
+Fontana, Chaco|H3512
+Puerto Vilelas, Chaco|H3514
+Presidencia Roque Sáenz Peña, Chaco|H3700
+Villa Ángela, Chaco|H3540
+General San Martín, Chaco|H3750
+Charata, Chaco|H3730
+Quitilipi, Chaco|H3530
+Las Breñas, Chaco|H3722
+Entre Ríos|E3100
+Paraná, Entre Ríos|E3100
+Concordia, Entre Ríos|E3200
+Gualeguaychú, Entre Ríos|E2820
+Concepción del Uruguay, Entre Ríos|E3260
+Gualeguay, Entre Ríos|E2840
+Victoria, Entre Ríos|E3153
+La Paz, Entre Ríos|E3190
+Villaguay, Entre Ríos|E3240
+Colón, Entre Ríos|E3280
+Federación, Entre Ríos|E3206
+San Luis|D5700
+Capital, San Luis|D5700
+Villa Mercedes, San Luis|D5730
+Merlo, San Luis|D5881
+La Punta, San Luis|D5701
+Juana Koslay, San Luis|D5701
+La Rioja|F5300
+Capital, La Rioja|F5300
+Chilecito, La Rioja|F5360
+Chamical, La Rioja|F5381
+Aimogasta, La Rioja|F5310
+Catamarca|K4700
+San Fernando del Valle, Catamarca|K4700
+Andalgalá, Catamarca|K4740
+Belén, Catamarca|K4750
+Santa María, Catamarca|K4184
+Tinogasta, Catamarca|K5340
+Jujuy|Y4600
+San Salvador de Jujuy|Y4600
+Palpalá, Jujuy|Y4612
+San Pedro, Jujuy|Y4500
+Libertador General San Martín, Jujuy|Y4508
+Humahuaca, Jujuy|Y4630
+Tilcara, Jujuy|Y4624
+La Quiaca, Jujuy|Y4650
+Santiago del Estero|G4200
+Capital, Santiago del Estero|G4200
+La Banda, Santiago del Estero|G4300
+Termas de Río Hondo, Santiago del Estero|G4220
+Frías, Santiago del Estero|G4230
+Añatuya, Santiago del Estero|G3760
+Fernández, Santiago del Estero|G3011

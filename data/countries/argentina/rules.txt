@@ -1,4 +1,130 @@
+# Argentina Country Rules
+
 # --- Country status ---
-finished=false
+finished=true
 
+# --- Name rules ---
+name_order=first+surname
+surname_count=1
+surname_usage=always
 
+# --- Date format ---
+date_format=DD/MM/YYYY
+
+# --- Age rules ---
+life_expectancy=77
+min_age=18
+max_age=77
+
+# --- Fertility rules ---
+female_fertility_min_age=18
+female_fertility_max_age=45
+parent_min_age_gap=18
+parent_max_age_gap=45
+
+# --- Phone rules ---
+phone_country_code=+54
+phone_length=10
+phone_mobile_prefixes=11,15,9
+phone_format=## #### ####
+
+# --- Physical characteristics ---
+# Argentina has diverse European heritage (Italian, Spanish, German, etc.)
+hair_colors=Dark Brown:35,Brown:30,Black:20,Light Brown:10,Dark Blonde:3,Blonde:1.5,Red:0.3,Gray:0.2
+eye_colors=Dark Brown:40,Brown:30,Light Brown:15,Hazel:8,Green:4,Blue:2.5,Gray:0.5
+skin_tones=Light:55,Medium:35,Olive:8,Tan:1.5,Dark:0.5
+
+# --- Religion ---
+# Argentina is predominantly Catholic but increasingly secular
+religions=Catholic:62,Atheist:18,Agnostic:10,Non-practicing Catholic:6,Evangelical:2.5,Jewish:0.5,Muslim:0.3,Other:0.2
+
+# --- Family configuration ---
+average_children=2.0
+min_children=1
+max_children=4
+
+# Siblings configuration
+average_siblings=2.2
+min_siblings=0
+max_siblings=5
+sibling_probability=80
+
+# --- Employment configuration ---
+unemployment_rate=10.5
+jobless_rate=3.0
+
+# --- Death Probability Configuration ---
+# Parents death probability
+death_prob_parents_very_young=2
+death_prob_parents_young_adults=5
+death_prob_parents_adults=28
+death_prob_parents_middle_aged=48
+death_prob_parents_older_adults=68
+death_prob_parents_seniors=83
+death_prob_parents_elderly=94
+
+# Children death probability
+death_prob_children_very_young=1.5
+death_prob_children_young_adults=2.5
+death_prob_children_adults=3.5
+death_prob_children_middle_aged=4.5
+death_prob_children_older_adults=6
+death_prob_children_seniors=8
+death_prob_children_elderly=10
+
+# Siblings death probability
+death_prob_siblings_very_young=1
+death_prob_siblings_young_adults=3
+death_prob_siblings_adults=6
+death_prob_siblings_middle_aged=9
+death_prob_siblings_older_adults=16
+death_prob_siblings_seniors=27
+death_prob_siblings_elderly=42
+
+# --- Currency ---
+currency_symbol=$
+currency_code=ARS
+currency_name=Argentine Peso
+
+# --- Social Class Configuration ---
+# Argentina has significant income inequality
+social_classes=low:30,middle:45,upper-middle:20,high:5
+
+# Salary ranges per social class (annual, in Argentine pesos)
+# Note: Values in ARS are subject to inflation
+salary_low=2400000,4800000
+salary_middle=4800000,9600000
+salary_upper-middle=9600000,24000000
+salary_high=24000000,72000000
+
+# Pension ranges per social class (annual, in pesos)
+pension_low=1800000,3600000
+pension_middle=3600000,7200000
+pension_upper-middle=7200000,18000000
+pension_high=18000000,48000000
+
+# --- Language Configuration ---
+min_languages=1
+max_languages=4
+
+# Languages spoken in Argentina
+# Spanish is native, English is very common in education
+available_languages=English:75,Portuguese:20,Italian:15,French:12,German:5,Guaraní:3,Quechua:1
+
+# Language level probabilities
+language_level_basic=35
+language_level_intermediate=45
+language_level_advanced=20
+
+# --- Education Configuration ---
+# Format: EducationLevel:Probability
+education_levels=Primary education:8,Secondary education:25,Higher secondary:22,Technical degree:15,University incomplete:10,Bachelor's degree:12,Master's degree:6,Doctorate:2
+
+# Education age requirements
+education_age_requirements=Primary education:6,Secondary education:12,Higher secondary:15,Technical degree:18,University incomplete:18,Bachelor's degree:21,Master's degree:24,Doctorate:27
+
+# --- Employment status probabilities ---
+employment_status_employed=68
+employment_status_unemployed=10
+employment_status_student=12
+employment_status_retired=10
