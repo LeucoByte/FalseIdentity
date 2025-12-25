@@ -1,4 +1,129 @@
+# Mexico Country Rules
+
 # --- Country status ---
-finished=false
+finished=true
 
+# --- Name rules ---
+name_order=first+surname1+surname2
+surname_count=2
+surname_usage=always
 
+# --- Date format ---
+date_format=DD/MM/YYYY
+
+# --- Age rules ---
+life_expectancy=75
+min_age=18
+max_age=75
+
+# --- Fertility rules ---
+female_fertility_min_age=18
+female_fertility_max_age=45
+parent_min_age_gap=18
+parent_max_age_gap=45
+
+# --- Phone rules ---
+phone_country_code=+52
+phone_length=10
+phone_mobile_prefixes=55,33,81,222,664,656,442,461,443,999,984,744
+phone_format=## #### ####
+
+# --- Physical characteristics ---
+# Mexico has mestizo (Indigenous + Spanish) heritage
+hair_colors=Black:60,Dark Brown:30,Brown:8,Light Brown:1.5,Dark Blonde:0.3,Gray:0.2
+eye_colors=Dark Brown:70,Brown:20,Light Brown:8,Hazel:1.5,Green:0.3,Blue:0.2
+skin_tones=Medium:45,Light:25,Tan:20,Olive:8,Dark:2
+
+# --- Religion ---
+# Mexico is predominantly Catholic
+religions=Catholic:78,Atheist:8,Agnostic:5,Non-practicing Catholic:4,Evangelical:3,Protestant:1.5,Other:0.5
+
+# --- Family configuration ---
+average_children=2.3
+min_children=1
+max_children=5
+
+# Siblings configuration
+average_siblings=2.5
+min_siblings=0
+max_siblings=6
+sibling_probability=85
+
+# --- Employment configuration ---
+unemployment_rate=3.5
+jobless_rate=2.5
+
+# --- Death Probability Configuration ---
+# Parents death probability
+death_prob_parents_very_young=2
+death_prob_parents_young_adults=5
+death_prob_parents_adults=30
+death_prob_parents_middle_aged=50
+death_prob_parents_older_adults=70
+death_prob_parents_seniors=85
+death_prob_parents_elderly=95
+
+# Children death probability
+death_prob_children_very_young=2
+death_prob_children_young_adults=3
+death_prob_children_adults=4
+death_prob_children_middle_aged=5
+death_prob_children_older_adults=7
+death_prob_children_seniors=10
+death_prob_children_elderly=12
+
+# Siblings death probability
+death_prob_siblings_very_young=1.5
+death_prob_siblings_young_adults=3
+death_prob_siblings_adults=6
+death_prob_siblings_middle_aged=10
+death_prob_siblings_older_adults=18
+death_prob_siblings_seniors=30
+death_prob_siblings_elderly=45
+
+# --- Currency ---
+currency_symbol=MX$
+currency_code=MXN
+currency_name=Mexican Peso
+
+# --- Social Class Configuration ---
+# Mexico has significant income inequality
+social_classes=low:40,middle:35,upper-middle:20,high:5
+
+# Salary ranges per social class (annual, in Mexican pesos)
+salary_low=96000,192000
+salary_middle=192000,384000
+salary_upper-middle=384000,960000
+salary_high=960000,2880000
+
+# Pension ranges per social class (annual, in pesos)
+pension_low=72000,144000
+pension_middle=144000,288000
+pension_upper-middle=288000,720000
+pension_high=720000,1920000
+
+# --- Language Configuration ---
+min_languages=1
+max_languages=4
+
+# Languages spoken in Mexico
+# Spanish is native, English is common in education
+available_languages=English:60,French:8,Portuguese:5,German:3,Italian:2,Nahuatl:1.5,Maya:1,Zapotec:0.5
+
+# Language level probabilities
+language_level_basic=40
+language_level_intermediate=45
+language_level_advanced=15
+
+# --- Education Configuration ---
+# Format: EducationLevel:Probability
+education_levels=Primary education:15,Secondary education:30,Higher secondary:20,Technical degree:12,University incomplete:8,Bachelor's degree:10,Master's degree:4,Doctorate:1
+
+# Education age requirements
+education_age_requirements=Primary education:6,Secondary education:12,Higher secondary:15,Technical degree:18,University incomplete:18,Bachelor's degree:21,Master's degree:24,Doctorate:27
+
+# --- Employment status probabilities ---
+employment_status_employed=65
+employment_status_unemployed=4
+employment_status_student=15
+employment_status_retired=16

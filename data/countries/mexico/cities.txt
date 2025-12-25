@@ -1,0 +1,399 @@
+Ciudad de México|06000
+Polanco, Ciudad de México|11560
+Condesa, Ciudad de México|06140
+Roma Norte, Ciudad de México|06700
+Coyoacán, Ciudad de México|04000
+Tlalpan, Ciudad de México|14000
+Iztapalapa, Ciudad de México|09000
+Benito Juárez, Ciudad de México|03100
+Miguel Hidalgo, Ciudad de México|11000
+Cuauhtémoc, Ciudad de México|06000
+Xochimilco, Ciudad de México|16000
+Tláhuac, Ciudad de México|13000
+Azcapotzalco, Ciudad de México|02000
+Gustavo A. Madero, Ciudad de México|07000
+Venustiano Carranza, Ciudad de México|15000
+Álvaro Obregón, Ciudad de México|01000
+Cuajimalpa, Ciudad de México|05000
+Magdalena Contreras, Ciudad de México|10000
+Milpa Alta, Ciudad de México|12000
+Guadalajara, Jalisco|44100
+Zapopan, Jalisco|45000
+Tlaquepaque, Jalisco|45500
+Tonalá, Jalisco|45400
+El Salto, Jalisco|45680
+Tlajomulco de Zúñiga, Jalisco|45640
+Puerto Vallarta, Jalisco|48300
+Lagos de Moreno, Jalisco|47400
+Tepatitlán, Jalisco|47600
+Ocotlán, Jalisco|47800
+Arandas, Jalisco|47180
+Autlán, Jalisco|48900
+La Barca, Jalisco|47910
+Tequila, Jalisco|46400
+Chapala, Jalisco|45900
+Ajijic, Jalisco|45920
+Monterrey, Nuevo León|64000
+San Pedro Garza García, Nuevo León|66200
+Apodaca, Nuevo León|66600
+Santa Catarina, Nuevo León|66100
+San Nicolás de los Garza, Nuevo León|66400
+Guadalupe, Nuevo León|67100
+Escobedo, Nuevo León|66050
+García, Nuevo León|66000
+Cadereyta Jiménez, Nuevo León|67480
+Montemorelos, Nuevo León|67500
+Linares, Nuevo León|67700
+Sabinas Hidalgo, Nuevo León|65200
+Puebla, Puebla|72000
+Cholula, Puebla|72760
+San Andrés Cholula, Puebla|72810
+San Pedro Cholula, Puebla|72760
+Atlixco, Puebla|74200
+Tehuacán, Puebla|75700
+San Martín Texmelucan, Puebla|74000
+Teziutlán, Puebla|73800
+Amozoc, Puebla|72400
+Cuautlancingo, Puebla|72710
+Izúcar de Matamoros, Puebla|74420
+Zacatlán, Puebla|73310
+Tijuana, Baja California|22000
+Playas de Tijuana, Tijuana|22200
+Otay, Tijuana|22390
+La Mesa, Tijuana|22105
+Rosarito, Baja California|22710
+Tecate, Baja California|21400
+Ensenada, Baja California|22800
+San Felipe, Baja California|21850
+Mexicali, Baja California|21000
+San Luis Río Colorado, Baja California|83400
+León, Guanajuato|37000
+Celaya, Guanajuato|38000
+Irapuato, Guanajuato|36500
+Salamanca, Guanajuato|36700
+Silao, Guanajuato|36100
+Guanajuato, Guanajuato|36000
+San Miguel de Allende, Guanajuato|37700
+Dolores Hidalgo, Guanajuato|37800
+Acámbaro, Guanajuato|38600
+Pénjamo, Guanajuato|36900
+Valle de Santiago, Guanajuato|38400
+Cortazar, Guanajuato|38300
+Moroleón, Guanajuato|38800
+Uriangato, Guanajuato|38980
+Querétaro, Querétaro|76000
+San Juan del Río, Querétaro|76800
+Corregidora, Querétaro|76900
+El Marqués, Querétaro|76240
+Tequisquiapan, Querétaro|76750
+Cadereyta de Montes, Querétaro|76500
+Pedro Escobedo, Querétaro|76700
+Mérida, Yucatán|97000
+Valladolid, Yucatán|97780
+Tizimín, Yucatán|97700
+Progreso, Yucatán|97320
+Ticul, Yucatán|97860
+Motul, Yucatán|97430
+Izamal, Yucatán|97540
+Cancún, Quintana Roo|77500
+Playa del Carmen, Quintana Roo|77710
+Chetumal, Quintana Roo|77000
+Tulum, Quintana Roo|77760
+Cozumel, Quintana Roo|77600
+Isla Mujeres, Quintana Roo|77400
+Puerto Morelos, Quintana Roo|77580
+Bacalar, Quintana Roo|77930
+Felipe Carrillo Puerto, Quintana Roo|77200
+Acapulco, Guerrero|39300
+Zihuatanejo, Guerrero|40880
+Chilpancingo, Guerrero|39000
+Iguala, Guerrero|40000
+Taxco, Guerrero|40200
+Chilapa, Guerrero|41100
+Tlapa, Guerrero|41304
+Veracruz, Veracruz|91700
+Xalapa, Veracruz|91000
+Coatzacoalcos, Veracruz|96400
+Poza Rica, Veracruz|93260
+Córdoba, Veracruz|94500
+Orizaba, Veracruz|94300
+Minatitlán, Veracruz|96700
+Tuxpan, Veracruz|92800
+Papantla, Veracruz|93400
+Martínez de la Torre, Veracruz|93600
+Boca del Río, Veracruz|94290
+San Andrés Tuxtla, Veracruz|95700
+Coatepec, Veracruz|91500
+Morelia, Michoacán|58000
+Uruapan, Michoacán|60000
+Zamora, Michoacán|59600
+Lázaro Cárdenas, Michoacán|60950
+Apatzingán, Michoacán|60710
+Zitácuaro, Michoacán|61500
+Pátzcuaro, Michoacán|61600
+Sahuayo, Michoacán|59000
+La Piedad, Michoacán|59300
+Hidalgo, Michoacán|61100
+Aguascalientes, Aguascalientes|20000
+Jesús María, Aguascalientes|20900
+San Francisco de los Romo, Aguascalientes|20300
+Calvillo, Aguascalientes|20800
+Pabellón de Arteaga, Aguascalientes|20670
+Cuernavaca, Morelos|62000
+Cuautla, Morelos|62740
+Jiutepec, Morelos|62550
+Temixco, Morelos|62580
+Yautepec, Morelos|62730
+Emiliano Zapata, Morelos|62760
+Jojutla, Morelos|62900
+Tepoztlán, Morelos|62520
+Toluca, Estado de México|50000
+Metepec, Estado de México|52140
+Naucalpan, Estado de México|53000
+Ecatepec, Estado de México|55000
+Nezahualcóyotl, Estado de México|57000
+Tlalnepantla, Estado de México|54000
+Atizapán de Zaragoza, Estado de México|52900
+Cuautitlán Izcalli, Estado de México|54700
+Chimalhuacán, Estado de México|56330
+Valle de Chalco, Estado de México|56600
+Ixtapaluca, Estado de México|56530
+Los Reyes La Paz, Estado de México|56400
+Chalco, Estado de México|56600
+Tecámac, Estado de México|55740
+Tultitlán, Estado de México|54900
+Nicolás Romero, Estado de México|54400
+Texcoco, Estado de México|56100
+Pachuca, Hidalgo|42000
+Tulancingo, Hidalgo|43600
+Tizayuca, Hidalgo|43800
+Tula, Hidalgo|42800
+Actopan, Hidalgo|42500
+Ixmiquilpan, Hidalgo|42300
+Huejutla, Hidalgo|43000
+Tepeji del Río, Hidalgo|42850
+Chihuahua, Chihuahua|31000
+Ciudad Juárez, Chihuahua|32000
+Cuauhtémoc, Chihuahua|31500
+Delicias, Chihuahua|33000
+Parral, Chihuahua|33800
+Nuevo Casas Grandes, Chihuahua|31700
+Camargo, Chihuahua|33700
+Jiménez, Chihuahua|33980
+Hermosillo, Sonora|83000
+Ciudad Obregón, Sonora|85000
+Nogales, Sonora|84000
+Guaymas, Sonora|85400
+San Luis Río Colorado, Sonora|83400
+Navojoa, Sonora|85800
+Agua Prieta, Sonora|84200
+Caborca, Sonora|83600
+Cananea, Sonora|84620
+Puerto Peñasco, Sonora|83550
+Culiacán, Sinaloa|80000
+Mazatlán, Sinaloa|82000
+Los Mochis, Sinaloa|81200
+Guasave, Sinaloa|81000
+Guamúchil, Sinaloa|81460
+Navolato, Sinaloa|80370
+El Fuerte, Sinaloa|81890
+Escuinapa, Sinaloa|82400
+Durango, Durango|34000
+Gómez Palacio, Durango|35000
+Lerdo, Durango|35150
+Santiago Papasquiaro, Durango|34600
+Guadalupe Victoria, Durango|35100
+Vicente Guerrero, Durango|34500
+Torreón, Coahuila|27000
+Saltillo, Coahuila|25000
+Monclova, Coahuila|25700
+Piedras Negras, Coahuila|26000
+Acuña, Coahuila|26200
+Sabinas, Coahuila|26700
+Frontera, Coahuila|26070
+Parras, Coahuila|27980
+San Luis Potosí, San Luis Potosí|78000
+Soledad de Graciano Sánchez, San Luis Potosí|78430
+Ciudad Valles, San Luis Potosí|79000
+Matehuala, San Luis Potosí|78700
+Río Verde, San Luis Potosí|79610
+Tamazunchale, San Luis Potosí|79960
+Rioverde, San Luis Potosí|79610
+Zacatecas, Zacatecas|98000
+Fresnillo, Zacatecas|99000
+Guadalupe, Zacatecas|98600
+Jerez, Zacatecas|99300
+Río Grande, Zacatecas|98400
+Sombrerete, Zacatecas|99100
+Loreto, Zacatecas|98830
+Villanueva, Zacatecas|98700
+Oaxaca, Oaxaca|68000
+Salina Cruz, Oaxaca|70600
+Juchitán, Oaxaca|70000
+Tehuantepec, Oaxaca|70760
+Huajuapan, Oaxaca|69000
+Tuxtepec, Oaxaca|68300
+Puerto Escondido, Oaxaca|71980
+Tlaxiaco, Oaxaca|69800
+Tlacolula, Oaxaca|70400
+Ocotlán, Oaxaca|71510
+Tuxtla Gutiérrez, Chiapas|29000
+San Cristóbal de las Casas, Chiapas|29200
+Tapachula, Chiapas|30700
+Comitán, Chiapas|30000
+Ocosingo, Chiapas|29950
+Palenque, Chiapas|29960
+Tonalá, Chiapas|30500
+Arriaga, Chiapas|30450
+Las Margaritas, Chiapas|30180
+Cintalapa, Chiapas|30400
+Villahermosa, Tabasco|86000
+Cárdenas, Tabasco|86500
+Comalcalco, Tabasco|86300
+Huimanguillo, Tabasco|86400
+Macuspana, Tabasco|86700
+Tenosique, Tabasco|86901
+Paraíso, Tabasco|86600
+Frontera, Tabasco|86100
+Campeche, Campeche|24000
+Ciudad del Carmen, Campeche|24100
+Champotón, Campeche|24400
+Escárcega, Campeche|24350
+Calkiní, Campeche|24900
+Hopelchén, Campeche|24600
+Tampico, Tamaulipas|89000
+Reynosa, Tamaulipas|88500
+Matamoros, Tamaulipas|87300
+Nuevo Laredo, Tamaulipas|88000
+Victoria, Tamaulipas|87000
+Altamira, Tamaulipas|89600
+Madero, Tamaulipas|89400
+Mante, Tamaulipas|89800
+Valle Hermoso, Tamaulipas|87500
+Río Bravo, Tamaulipas|88900
+Miguel Alemán, Tamaulipas|88300
+San Fernando, Tamaulipas|87600
+Colima, Colima|28000
+Manzanillo, Colima|28200
+Tecomán, Colima|28100
+Villa de Álvarez, Colima|28970
+Cuauhtémoc, Colima|28350
+Armería, Colima|28300
+Tepic, Nayarit|63000
+Xalisco, Nayarit|63780
+Santiago Ixcuintla, Nayarit|63300
+Compostela, Nayarit|63700
+Tuxpan, Nayarit|63200
+Ixtlán del Río, Nayarit|63940
+San Blas, Nayarit|63740
+Acaponeta, Nayarit|63600
+Tlaxcala, Tlaxcala|90000
+Apizaco, Tlaxcala|90300
+Huamantla, Tlaxcala|90500
+San Pablo del Monte, Tlaxcala|90920
+Chiautempan, Tlaxcala|90800
+Zacatelco, Tlaxcala|90740
+Papalotla, Tlaxcala|90600
+Santa Ana Chiautempan, Tlaxcala|90800
+La Paz, Baja California Sur|23000
+Los Cabos, Baja California Sur|23400
+San José del Cabo, Baja California Sur|23400
+Cabo San Lucas, Baja California Sur|23450
+Loreto, Baja California Sur|23880
+Mulegé, Baja California Sur|23900
+Comondú, Baja California Sur|23600
+Ciudad Constitución, Baja California Sur|23600
+Celaya, Guanajuato|38000
+Salamanca, Guanajuato|36700
+Salvatierra, Guanajuato|38900
+Villagrán, Guanajuato|38260
+Apaseo el Grande, Guanajuato|38160
+Juventino Rosas, Guanajuato|38240
+Santa Cruz de Juventino Rosas, Guanajuato|38240
+Comonfort, Guanajuato|38200
+Doctor Mora, Guanajuato|37970
+San Luis de la Paz, Guanajuato|37900
+San José Iturbide, Guanajuato|37980
+Tarandacuao, Guanajuato|38470
+Santiago Maravatío, Guanajuato|38430
+Purísima del Rincón, Guanajuato|36413
+San Francisco del Rincón, Guanajuato|36400
+Manuel Doblado, Guanajuato|36950
+Cuerámaro, Guanajuato|36960
+Abasolo, Guanajuato|36970
+Huanímaro, Guanajuato|36910
+Romita, Guanajuato|36220
+San Felipe, Guanajuato|37600
+Ocampo, Guanajuato|37660
+Allende, Guanajuato|37550
+Nuevo Laredo, Tamaulipas|88000
+Miguel Alemán, Tamaulipas|88300
+Camargo, Tamaulipas|87300
+Guerrero, Tamaulipas|88710
+Mier, Tamaulipas|88800
+Ciudad Mier, Tamaulipas|88800
+Ciudad Gustavo Díaz Ordaz, Tamaulipas|88710
+Valle Hermoso, Tamaulipas|87500
+San Carlos, Tamaulipas|87400
+Soto la Marina, Tamaulipas|87950
+Aldama, Tamaulipas|89600
+González, Tamaulipas|89150
+Xicoténcatl, Tamaulipas|89250
+Tula, Tamaulipas|87900
+Jaumave, Tamaulipas|87670
+Bustamante, Tamaulipas|87180
+Miquihuana, Tamaulipas|87430
+Palmillas, Tamaulipas|87190
+Torreón, Coahuila|27000
+Matamoros, Coahuila|27440
+Viesca, Coahuila|27470
+San Pedro, Coahuila|27800
+Francisco I. Madero, Coahuila|27960
+Arteaga, Coahuila|25350
+Ramos Arizpe, Coahuila|25900
+General Cepeda, Coahuila|25970
+Zaragoza, Coahuila|26180
+Nava, Coahuila|26240
+Allende, Coahuila|26530
+Nueva Rosita, Coahuila|26830
+Múzquiz, Coahuila|26340
+Morelos, Coahuila|26830
+Progreso, Coahuila|26640
+Nadadores, Coahuila|26680
+Cuatro Ciénegas, Coahuila|27640
+Sacramento, Coahuila|27600
+Candela, Coahuila|26340
+Castaños, Coahuila|25730
+Ocampo, Durango|35980
+Mapimí, Durango|35730
+Nazas, Durango|35410
+Rodeo, Durango|35770
+Tlahualilo, Durango|35640
+Peñón Blanco, Durango|34900
+Cuencamé, Durango|34940
+Nombre de Dios, Durango|34370
+El Oro, Durango|34227
+Tepehuanes, Durango|34720
+Canatlán, Durango|34320
+Pueblo Nuevo, Durango|34950
+Tamazula, Durango|34580
+San Dimas, Durango|34560
+Canelas, Durango|34570
+Topia, Durango|34541
+Otáez, Durango|34230
+Inde, Durango|34253
+Guanaceví, Durango|34460
+Coneto de Comonfort, Durango|34390
+Poanas, Durango|34310
+Súchil, Durango|34220
+Nuevo Ideal, Durango|34240
+Mezquital, Durango|34880
+Huazamota, Durango|34870
+Ocampo, Guanajuato|37660
+Victoria, Guanajuato|37240
+Xichú, Guanajuato|37770
+Atarjea, Guanajuato|37778
+Santa Catarina, Guanajuato|37779
+Tierra Blanca, Guanajuato|37975
+Coroneo, Guanajuato|38050
+Jerécuaro, Guanajuato|38540

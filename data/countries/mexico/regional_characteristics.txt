@@ -1,0 +1,19 @@
+# Regional and Historical Characteristics for Mexico
+# Format: characteristic_text|min_age|max_age|gender|probability
+# gender: male, female, both
+# probability: 0.0-1.0 (chance of applying)
+# CRITICAL: Current year is 2025. Min_age = age when CONSCIOUSLY experienced (not just alive)
+# For "grew up" events: need 10+ years of conscious experience
+# For "witnessed/experienced" events: need to be 14+ (teenager awareness)
+# For "remembers" events: need to be 7+ (childhood memories)
+
+Remembers the 1985 Mexico City earthquake|47|999|both|0.75
+Experienced the 1994-1995 peso crisis (Efecto Tequila)|44|999|both|0.80
+Witnessed Mexico's democratic transition in 2000|39|999|both|0.70
+Grew up during the war on drugs (2006-2012)|27|43|both|0.85
+Witnessed the COVID-19 pandemic lockdowns|19|999|both|0.90
+Grew up with football (fútbol) as central to culture|18|999|both|0.90
+Celebrates Day of the Dead (Día de Muertos) annually|18|999|both|0.95
+Grew up eating street food (tacos, quesadillas, etc.)|18|999|both|0.90
+Witnessed Mexico's rise in violence and insecurity|25|999|both|0.80
+Experienced migration of family members to the US|25|999|both|0.50
