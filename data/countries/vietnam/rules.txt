@@ -1,4 +1,126 @@
 # --- Country status ---
-finished=false
+finished=true
 
+# --- Name rules ---
+name_order=surname+first
+surname_count=1
+surname_usage=always
 
+# --- Date format ---
+date_format=DD/MM/YYYY
+
+# --- Age rules ---
+life_expectancy=75
+min_age=18
+max_age=75
+
+# --- Fertility rules ---
+# Female fertility limits (based on modern Vietnamese social reality)
+female_fertility_min_age=18
+female_fertility_max_age=45
+# Parent age limits (to avoid unrealistic parent-child gaps)
+parent_min_age_gap=18
+parent_max_age_gap=45
+
+# --- Phone rules ---
+phone_country_code=+84
+phone_length=10
+phone_mobile_prefixes=3,5,7,8,9
+phone_format=#### ### ###
+
+# --- Physical characteristics ---
+# Format: ColorName:Probability (probabilities should sum to 100)
+hair_colors=Black:95,Dark Brown:4.5,Brown:0.5,Gray:0,White:0
+eye_colors=Dark Brown:85,Brown:14,Black:1
+skin_tones=Light:25,Medium:50,Tan:20,Olive:4,Dark:1
+
+# --- Religion ---
+# Format: Religion:Probability (based on Vietnamese demographics)
+religions=Buddhist:45,None/Atheist:30,Folk Religion:15,Catholic:7,Cao Dai:2,Protestant:0.7,Other:0.3
+
+# --- Family configuration ---
+# Average number of children in Vietnam (used for realistic family generation)
+average_children=2.0
+min_children=1
+max_children=4
+
+# Siblings configuration (based on average_children)
+average_siblings=2.5
+min_siblings=0
+max_siblings=6
+sibling_probability=80
+
+# --- Employment configuration ---
+# Unemployment and jobless probabilities
+unemployment_rate=2.5
+jobless_rate=3.0
+
+# --- Death Probability Configuration ---
+# Age-based death probabilities for family members (%)
+# Format: age_bucket:probability
+# Parents death probability (based on identity's age)
+death_prob_parents_very_young=3
+death_prob_parents_young_adults=8
+death_prob_parents_adults=35
+death_prob_parents_middle_aged=55
+death_prob_parents_older_adults=75
+death_prob_parents_seniors=90
+death_prob_parents_elderly=98
+
+# Children death probability (lower than parents)
+death_prob_children_very_young=2
+death_prob_children_young_adults=3
+death_prob_children_adults=4
+death_prob_children_middle_aged=5
+death_prob_children_older_adults=7
+death_prob_children_seniors=10
+death_prob_children_elderly=15
+
+# Siblings death probability (based on identity's age)
+death_prob_siblings_very_young=2
+death_prob_siblings_young_adults=4
+death_prob_siblings_adults=6
+death_prob_siblings_middle_aged=10
+death_prob_siblings_older_adults=18
+death_prob_siblings_seniors=30
+death_prob_siblings_elderly=45
+
+# --- Currency ---
+currency_symbol=₫
+currency_code=VND
+
+# --- Social Class Configuration ---
+# Format: ClassName:Probability (probabilities should sum to 100)
+# Based on Vietnamese socioeconomic distribution
+social_classes=low:35,middle:45,upper-middle:17,high:3
+
+# Salary ranges per social class (annual, in VND millions)
+# Format: min,max
+salary_low=60000000,120000000
+salary_middle=120000000,250000000
+salary_upper-middle=250000000,600000000
+salary_high=600000000,2000000000
+
+# Pension ranges per social class (annual, in VND millions)
+# Typically 60-75% of previous salary
+# Format: min,max
+pension_low=40000000,90000000
+pension_middle=80000000,180000000
+pension_upper-middle=170000000,420000000
+pension_high=400000000,1200000000
+
+# --- Language Configuration ---
+# Minimum and maximum number of languages (including native)
+min_languages=1
+max_languages=4
+
+# Languages spoken in Vietnam and commonly taught
+# Format: Language:Probability
+# Native language (Vietnamese) is always included automatically
+available_languages=English:65,Chinese:15,French:8,Japanese:5,Korean:4,Russian:2,German:1
+
+# Language level probabilities
+# Format: Level:Probability (for non-native languages)
+language_level_basic=35
+language_level_intermediate=45
+language_level_advanced=20

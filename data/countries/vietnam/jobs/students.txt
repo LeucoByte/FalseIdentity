@@ -1,0 +1,51 @@
+Medicine
+Engineering
+Information Technology
+Business Administration
+Economics
+Law
+Architecture
+Pharmacy
+Dentistry
+International Relations
+English Language
+Finance and Banking
+Accounting
+Marketing
+Tourism and Hospitality
+Civil Engineering
+Electrical Engineering
+Mechanical Engineering
+Computer Science
+Software Engineering
+Biotechnology
+Chemistry
+Physics
+Mathematics
+Biology
+Environmental Science
+Journalism
+Communication
+Graphic Design
+Fine Arts
+Vietnamese Literature
+History
+Philosophy
+Education
+Primary Education
+Foreign Languages
+Japanese Language
+Chinese Language
+Korean Language
+French Language
+Psychology
+Sociology
+Political Science
+Public Administration
+Urban Planning
+Agricultural Science
+Veterinary Medicine
+Nursing
+Medical Technology
+Sports Science
+Nutrition

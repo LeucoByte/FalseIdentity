@@ -210,8 +210,8 @@ def translate(text: str, country: str) -> str:
     latin_countries = {
         'spain', 'argentina', 'australia', 'belgium', 'brazil',
         'france', 'germany', 'italy', 'mexico', 'netherlands',
-        'poland', 'portugal', 'sweden', 'turkey', 'uk', 'usa',
-        'vietnam'  # Uses Latin with diacritics
+        'poland', 'portugal', 'sweden', 'turkey', 'uk', 'usa'
+        # Vietnam removed - needs diacritic normalization
     }
 
     if country in latin_countries:
@@ -318,6 +318,19 @@ def translate(text: str, country: str) -> str:
                     result = result[0].upper() + result[1:]
                 return result
             return text
+
+        # VIETNAM - Vietnamese (Latin script with diacritics)
+        elif country == 'vietnam':
+            # Vietnamese uses Latin alphabet with diacritics
+            # We need to normalize (remove diacritics) not transliterate
+            import unicodedata
+            # NFD = Normalization Form Decomposed (separates base letters from diacritics)
+            normalized = unicodedata.normalize('NFD', text)
+            # Filter out combining marks (category 'Mn')
+            result = ''.join(c for c in normalized if unicodedata.category(c) != 'Mn')
+            # Handle Đ/đ special case (not a combining character, needs manual replacement)
+            result = result.replace('Đ', 'D').replace('đ', 'd')
+            return result
 
         # INDIA - Multiple scripts (but names usually pre-romanized)
         elif country == 'india':
