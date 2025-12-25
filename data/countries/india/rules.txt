@@ -1,4 +1,74 @@
-# --- Country status ---
-finished=false
+# India Country Rules
 
+name_order=first+surname
+date_format=DD/MM/YYYY
+currency=₹
+currency_name=Indian Rupee
 
+# Religions (simplified, no caste markers)
+religions=Hindu:75,Muslim:14,Christian:6,Sikh:2,None:3
+
+# Female fertility age limits
+female_fertility_min_age=18
+female_fertility_max_age=45
+
+# Parent age constraints
+parent_min_age_gap=18
+
+# Sibling probability and constraints
+sibling_probability=85
+avg_siblings=2.2
+max_siblings=5
+
+# Death probabilities by age bucket (per 100 people)
+# Format: role,age_bucket,probability
+death_probability=parents,very_young,0
+death_probability=parents,young_adults,0
+death_probability=parents,adults,5
+death_probability=parents,older_adults,20
+death_probability=parents,seniors,45
+death_probability=parents,elderly,75
+death_probability=siblings,very_young,0
+death_probability=siblings,young_adults,1
+death_probability=siblings,adults,2
+death_probability=siblings,older_adults,5
+death_probability=siblings,seniors,15
+death_probability=siblings,elderly,35
+death_probability=children,very_young,0.5
+death_probability=children,young_adults,1
+death_probability=children,adults,2
+death_probability=children,older_adults,4
+death_probability=children,seniors,10
+death_probability=children,elderly,25
+
+# Education levels (international equivalents)
+education_levels=No formal education:5,Primary education:10,Secondary education:25,Higher secondary:20,Diploma:15,Bachelor's degree:15,Master's degree:7,Doctorate:3
+
+# Education age requirements
+education_age_requirements=No formal education:0,Primary education:6,Secondary education:14,Higher secondary:16,Diploma:18,Bachelor's degree:18,Master's degree:22,Doctorate:25
+
+# Language proficiency levels
+language_proficiency=Native,Fluent,Professional,Conversational,Basic
+
+# Physical characteristics - Heights (cm)
+height_male_short=160,165
+height_male_average=166,172
+height_male_tall=173,178
+height_female_short=150,155
+height_female_average=156,162
+height_female_tall=163,168
+
+# Hair colors
+hair_colors=Black:85,Dark Brown:12,Brown:2,Other:1
+
+# Eye colors  
+eye_colors=Dark Brown:80,Brown:15,Hazel:3,Green:1,Other:1
+
+# Skin tones
+skin_tones=Fair:20,Medium:45,Olive:25,Dark:10
+
+# Employment status probabilities
+employment_status_employed=70
+employment_status_unemployed=8
+employment_status_student=12
+employment_status_retired=10

@@ -1,0 +1,12 @@
+Short_Underweight,38,44
+Short_Normal,45,54
+Short_Overweight,55,65
+Short_Obese,66,80
+Average_Underweight,42,49
+Average_Normal,50,60
+Average_Overweight,61,72
+Average_Obese,73,90
+Tall_Underweight,46,54
+Tall_Normal,55,66
+Tall_Overweight,67,80
+Tall_Obese,81,98

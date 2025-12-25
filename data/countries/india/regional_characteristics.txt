@@ -1,0 +1,16 @@
+# Regional and Historical Characteristics for India
+# Format: characteristic_text|min_age|max_age|gender|probability
+# gender: male, female, both
+# probability: 0.0-1.0 (chance of applying)
+# CRITICAL: Current year is 2025. Min_age = age when CONSCIOUSLY experienced
+
+Witnessed India's economic liberalization (1991)|42|999|both|0.75
+Grew up in post-independence India|60|999|both|0.90
+Experienced the Emergency period (1975-1977)|55|999|both|0.60
+Witnessed the rise of IT industry|35|999|both|0.70
+Remembers pre-internet era|35|999|both|0.85
+Experienced rapid urbanization|30|999|both|0.75
+Witnessed mobile phone revolution|28|999|both|0.80
+Grew up with social media|18|35|both|0.90
+Experienced COVID-19 pandemic|18|999|both|0.95
+Witnessed digital payment adoption|22|999|both|0.80
