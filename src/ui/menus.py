@@ -339,33 +339,18 @@ def view_saved_identities():
             print(f"{RED}Invalid option.{RESET}")
             continue
 
-        # Display identity
+        # Display identity - INNER LOOP for identity options
         identity = load_identity(str(files[idx]))
-        clear_screen()
-        print(identity.to_str_box())
-        print()
 
-        # Notes and considerations management submenu
-        print(f"{BOLD}{YELLOW}Options:{RESET}")
-        print(f"  [{RED}c{RESET}] View cultural considerations")
-        print(f"  [{RED}a{RESET}] Add a note")
-        print(f"  [{RED}e{RESET}] Edit identity JSON (opens gedit)")
-        print(f"  [{RED}r + Number{RESET}] Remove note (e.g., r1)")
-        print(f"  [{RED}Enter{RESET}] Return to identity list")
-        print()
-
-        note_choice = input(f"{BOLD}Select option:{RESET} ").strip()
-
-        # Handle cultural considerations view
-        if note_choice.lower() == 'c':
-            clear_screen()  # Clean FIRST, then show context
-            print(identity.display_considerations_box())
-            print()
-            input(f"{BOLD}Press Enter to continue...{RESET}")
+        # Inner loop for identity detail view
+        while True:
             clear_screen()
-            # Redisplay identity and options
+            # Reload identity in case it was modified
+            identity = load_identity(str(files[idx]))
             print(identity.to_str_box())
             print()
+
+            # Notes and considerations management submenu
             print(f"{BOLD}{YELLOW}Options:{RESET}")
             print(f"  [{RED}c{RESET}] View cultural considerations")
             print(f"  [{RED}a{RESET}] Add a note")
@@ -373,81 +358,93 @@ def view_saved_identities():
             print(f"  [{RED}r + Number{RESET}] Remove note (e.g., r1)")
             print(f"  [{RED}Enter{RESET}] Return to identity list")
             print()
-            continue
 
-        # Handle note management
-        if note_choice.lower() == 'a':
-            # Add note
-            print()
-            new_note = input(f"{BOLD}Enter note text:{RESET} ").strip()
-            if new_note:
-                identity.notes.append(new_note)
-                save_identity(identity, filepath=str(files[idx]))
-                print(f"{GREEN}Note added successfully!{RESET}")
+            note_choice = input(f"{BOLD}Select option:{RESET} ").strip()
+
+            # Empty input - return to identity list
+            if note_choice == "":
+                break
+
+            # Handle cultural considerations view
+            if note_choice.lower() == 'c':
+                clear_screen()  # Clean FIRST, then show context
+                print(identity.display_considerations_box())
                 print()
                 input(f"{BOLD}Press Enter to continue...{RESET}")
-        elif note_choice.lower() == 'e':
-            # Edit identity JSON with gedit
-            json_path = str(files[idx])
-            try:
-                # Open gedit and wait for it to close
-                print(f"\n{YELLOW}Opening {json_path} in gedit...{RESET}")
-                print(f"{YELLOW}Edit the JSON file, save your changes, and close gedit to continue.{RESET}\n")
-                subprocess.run(['gedit', json_path], check=True)
-
-                # Reload identity from JSON
-                print(f"\n{GREEN}Reloading identity from file...{RESET}")
-                identity = load_identity(json_path)
-
-                # Clear and display updated identity
-                clear_screen()
-                print(f"{GREEN}Identity updated successfully!{RESET}\n")
-                print(identity.to_str_box())
-                print()
-
-                # Show options again
-                print(f"{BOLD}{YELLOW}Options:{RESET}")
-                print(f"  [{RED}c{RESET}] View cultural considerations")
-                print(f"  [{RED}a{RESET}] Add a note")
-                print(f"  [{RED}e{RESET}] Edit identity JSON (opens gedit)")
-                print(f"  [{RED}r + Number{RESET}] Remove note (e.g., r1)")
-                print(f"  [{RED}Enter{RESET}] Return to identity list")
-                print()
                 continue
-            except FileNotFoundError:
-                print(f"\n{RED}Error: gedit not found. Please install gedit:{RESET}")
-                print(f"{YELLOW}  sudo apt-get install gedit  (Debian/Ubuntu){RESET}")
-                print(f"{YELLOW}  brew install gedit  (macOS){RESET}\n")
-                input(f"{BOLD}Press Enter to continue...{RESET}")
-            except subprocess.CalledProcessError as e:
-                print(f"\n{RED}Error opening gedit: {e}{RESET}\n")
-                input(f"{BOLD}Press Enter to continue...{RESET}")
-            except Exception as e:
-                print(f"\n{RED}Error loading updated identity: {e}{RESET}\n")
-                print(f"{YELLOW}The JSON file may contain invalid data.{RESET}\n")
-                input(f"{BOLD}Press Enter to continue...{RESET}")
-        elif note_choice.lower().startswith('r'):
-            # Remove note
-            note_num = note_choice[1:].strip()
-            if note_num.isdigit():
-                note_idx = int(note_num) - 1  # Convert to 0-based index
-                if 0 <= note_idx < len(identity.notes):
-                    removed_note = identity.notes.pop(note_idx)
+
+            # Handle note management
+            elif note_choice.lower() == 'a':
+                # Add note
+                print()
+                new_note = input(f"{BOLD}Enter note text:{RESET} ").strip()
+                if new_note:
+                    identity.notes.append(new_note)
                     save_identity(identity, filepath=str(files[idx]))
-                    print()
-                    print(f"{GREEN}Note removed successfully!{RESET}")
+                    print(f"{GREEN}Note added successfully!{RESET}")
                     print()
                     input(f"{BOLD}Press Enter to continue...{RESET}")
+                continue
+            elif note_choice.lower() == 'e':
+                # Edit identity JSON with gedit
+                json_path = str(files[idx])
+                try:
+                    # Open gedit and wait for it to close
+                    print(f"\n{YELLOW}Opening {json_path} in gedit...{RESET}")
+                    print(f"{YELLOW}Edit the JSON file, save your changes, and close gedit to continue.{RESET}\n")
+                    subprocess.run(['gedit', json_path], check=True)
+
+                    # Reload identity from JSON
+                    print(f"\n{GREEN}Reloading identity from file...{RESET}")
+                    identity = load_identity(json_path)
+                    print(f"{GREEN}Identity updated successfully!{RESET}")
+                    print()
+                    input(f"{BOLD}Press Enter to continue...{RESET}")
+                    continue
+                except FileNotFoundError:
+                    print(f"\n{RED}Error: gedit not found. Please install gedit:{RESET}")
+                    print(f"{YELLOW}  sudo apt-get install gedit  (Debian/Ubuntu){RESET}")
+                    print(f"{YELLOW}  brew install gedit  (macOS){RESET}\n")
+                    input(f"{BOLD}Press Enter to continue...{RESET}")
+                    continue
+                except subprocess.CalledProcessError as e:
+                    print(f"\n{RED}Error opening gedit: {e}{RESET}\n")
+                    input(f"{BOLD}Press Enter to continue...{RESET}")
+                    continue
+                except Exception as e:
+                    print(f"\n{RED}Error loading updated identity: {e}{RESET}\n")
+                    print(f"{YELLOW}The JSON file may contain invalid data.{RESET}\n")
+                    input(f"{BOLD}Press Enter to continue...{RESET}")
+                    continue
+            elif note_choice.lower().startswith('r'):
+                # Remove note
+                note_num = note_choice[1:].strip()
+                if note_num.isdigit():
+                    note_idx = int(note_num) - 1  # Convert to 0-based index
+                    if 0 <= note_idx < len(identity.notes):
+                        removed_note = identity.notes.pop(note_idx)
+                        save_identity(identity, filepath=str(files[idx]))
+                        print()
+                        print(f"{GREEN}Note removed successfully!{RESET}")
+                        print()
+                        input(f"{BOLD}Press Enter to continue...{RESET}")
+                    else:
+                        print()
+                        print(f"{RED}Invalid note number.{RESET}")
+                        print()
+                        input(f"{BOLD}Press Enter to continue...{RESET}")
                 else:
                     print()
-                    print(f"{RED}Invalid note number.{RESET}")
+                    print(f"{RED}Invalid option.{RESET}")
                     print()
                     input(f"{BOLD}Press Enter to continue...{RESET}")
+                continue
             else:
                 print()
                 print(f"{RED}Invalid option.{RESET}")
                 print()
                 input(f"{BOLD}Press Enter to continue...{RESET}")
+                continue
 
         clear_screen()
 

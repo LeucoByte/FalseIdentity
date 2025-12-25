@@ -1,0 +1,21 @@
+# Regional and Historical Characteristics for Japan
+# Format: characteristic_text|min_age|max_age|gender|probability
+# gender: male, female, both
+# probability: 0.0-1.0 (chance of applying)
+# CRITICAL: Current year is 2025. Min_age = age when CONSCIOUSLY experienced (not just alive)
+# For "grew up" events: need 10+ years of conscious experience
+# For "witnessed/experienced" events: need to be 14+ (teenager awareness)
+# For "remembers" events: need to be 7+ (childhood memories)
+
+Witnessed the Great East Japan Earthquake (2011)|21|999|both|0.40
+Experienced the Heisei era (1989-2019)|13|60|both|0.35
+Witnessed transition to Reiwa era (2019)|13|999|both|0.30
+Grew up during economic bubble period|45|65|both|0.35
+Witnessed bubble economy collapse (1991)|41|999|both|0.25
+Experienced COVID-19 pandemic|9|999|both|0.45
+Witnessed Tokyo 2020 Olympics (2021)|11|999|both|0.25
+Remembers pre-internet Japan|33|999|both|0.30
+Witnessed Tokyo 1964 Olympics|68|999|both|0.35
+Experienced post-war reconstruction|70|999|both|0.40
+Grew up with anime culture|18|45|both|0.35
+Experienced digital revolution|25|55|both|0.30

@@ -1,0 +1,55 @@
+Medicine
+Dentistry
+Pharmacy
+Nursing
+Law
+Economics
+Business Administration
+Commerce
+Accounting
+Finance
+Engineering
+Mechanical Engineering
+Electrical Engineering
+Civil Engineering
+Chemical Engineering
+Computer Science
+Information Technology
+Software Engineering
+Data Science
+Artificial Intelligence
+Robotics
+Architecture
+Physics
+Chemistry
+Biology
+Mathematics
+Environmental Science
+Agriculture
+Veterinary Medicine
+Education
+Psychology
+Sociology
+Social Welfare
+Political Science
+International Relations
+Languages
+English Literature
+Japanese Literature
+History
+Philosophy
+Fine Arts
+Music
+Design
+Graphic Design
+Fashion Design
+Animation
+Manga Studies
+Film Studies
+Media Studies
+Journalism
+Communication Studies
+Tourism
+Hospitality Management
+Sports Science
+Physical Education

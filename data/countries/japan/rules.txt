@@ -1,4 +1,129 @@
 # --- Country status ---
-finished=false
+finished=true
 
+# --- Name rules ---
+name_order=surname+first
+surname_count=1
+surname_usage=always
 
+# --- Date format ---
+date_format=YYYY/MM/DD
+
+# --- Age rules ---
+life_expectancy=85
+min_age=18
+max_age=85
+
+# --- Fertility rules ---
+# Female fertility limits (based on modern Japanese social reality)
+# Marriage and childbirth typically occur later in Japan
+female_fertility_min_age=20
+female_fertility_max_age=45
+# Parent age limits (to avoid unrealistic parent-child gaps)
+parent_min_age_gap=20
+parent_max_age_gap=45
+
+# --- Phone rules ---
+phone_country_code=+81
+phone_length=10
+phone_mobile_prefixes=70,80,90
+phone_format=###-####-####
+
+# --- Physical characteristics ---
+# Format: ColorName:Probability (probabilities should sum to 100)
+hair_colors=Black:85,Dark Brown:12,Brown:2,Dyed Brown:0.5,Dyed Blonde:0.3,Gray:0.1,White:0.1
+eye_colors=Dark Brown:75,Brown:20,Light Brown:4,Black:0.8,Hazel:0.2
+skin_tones=Light:70,Fair:20,Medium:9,Pale:0.8,Olive:0.2
+
+# --- Religion ---
+# Format: Religion:Probability (based on Japanese demographics)
+# Note: Most Japanese practice both Shinto and Buddhism, or are non-religious
+religions=Shinto and Buddhist:40,Non-religious:35,Buddhist:15,Shinto:8,Christian:1.5,Other:0.5
+
+# --- Family configuration ---
+# Average number of children in Japan (one of the lowest in the world)
+average_children=1.3
+min_children=1
+max_children=3
+
+# Siblings configuration (based on average_children)
+# In Japan, many people have 1 sibling or none
+average_siblings=1.4
+min_siblings=0
+max_siblings=3
+sibling_probability=65
+
+# --- Employment configuration ---
+# Unemployment and jobless probabilities
+unemployment_rate=2.5
+jobless_rate=1.5
+
+# --- Death Probability Configuration ---
+# Age-based death probabilities for family members (%)
+# Format: age_bucket:probability
+# Parents death probability (based on identity's age)
+death_prob_parents_very_young=1
+death_prob_parents_young_adults=3
+death_prob_parents_adults=25
+death_prob_parents_middle_aged=45
+death_prob_parents_older_adults=65
+death_prob_parents_seniors=80
+death_prob_parents_elderly=92
+
+# Children death probability (lower than parents)
+death_prob_children_very_young=0.5
+death_prob_children_young_adults=1
+death_prob_children_adults=2
+death_prob_children_middle_aged=3
+death_prob_children_older_adults=4
+death_prob_children_seniors=5
+death_prob_children_elderly=7
+
+# Siblings death probability (based on identity's age)
+death_prob_siblings_very_young=0.5
+death_prob_siblings_young_adults=2
+death_prob_siblings_adults=4
+death_prob_siblings_middle_aged=7
+death_prob_siblings_older_adults=12
+death_prob_siblings_seniors=22
+death_prob_siblings_elderly=38
+
+# --- Currency ---
+currency_symbol=¥
+currency_code=JPY
+
+# --- Social Class Configuration ---
+# Format: ClassName:Probability (probabilities should sum to 100)
+# Based on Japanese socioeconomic distribution (large middle class)
+social_classes=low:15,middle:60,upper-middle:20,high:5
+
+# Salary ranges per social class (annual, in yen)
+# Format: min,max
+salary_low=2000000,3500000
+salary_middle=3500000,7000000
+salary_upper-middle=7000000,15000000
+salary_high=15000000,50000000
+
+# Pension ranges per social class (annual, in yen)
+# Typically 50-70% of previous salary
+# Format: min,max
+pension_low=1200000,2500000
+pension_middle=2500000,5000000
+pension_upper-middle=5000000,10000000
+pension_high=10000000,30000000
+
+# --- Language Configuration ---
+# Minimum and maximum number of languages (including native)
+min_languages=1
+max_languages=3
+
+# Languages spoken in Japan and commonly taught
+# Format: Language:Probability
+# Native language (Japanese) is always included automatically
+available_languages=English:65,Chinese:15,Korean:10,French:5,German:3,Spanish:2,Portuguese:1.5,Italian:1
+
+# Language level probabilities
+# Format: Level:Probability (for non-native languages)
+language_level_basic=45
+language_level_intermediate=40
+language_level_advanced=15

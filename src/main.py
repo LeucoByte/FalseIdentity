@@ -92,7 +92,8 @@ def main():
             clear_screen()
             panic_recovery_menu()
         else:
-            print(f"{RED}Invalid option. Please try again.{RESET}\n")
+            clear_screen()
+            print(f"{RED}Invalid option.{RESET}\n")
 
 
 if __name__ == "__main__":

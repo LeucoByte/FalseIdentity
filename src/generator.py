@@ -2530,7 +2530,9 @@ class IdentityGenerator:
         country_languages = {
             "spain": "Spanish",
             "russia": "Russian",
-            "thailand": "Thai"
+            "thailand": "Thai",
+            "china": "Chinese",
+            "japan": "Japanese"
         }
         native_lang = country_languages.get(country.lower(), "Native")
         languages.append({
