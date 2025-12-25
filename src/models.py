@@ -182,6 +182,13 @@ def display_name_with_transliteration(name: str, surname: str, country: str = "u
             # Fallback
             return original
 
+    # VIETNAM: Surname comes first (like China)
+    # Vietnamese names: Surname + Gender_Marker + Given_Name
+    # The marker is already included in the 'name' parameter by generator.py
+    if country == 'vietnam':
+        full_name = f"{surname} {name}"
+        return display_with_transliteration(full_name, country)
+
     # For other countries: name + surname (original order)
     full_name = f"{name} {surname}"
     return display_with_transliteration(full_name, country)

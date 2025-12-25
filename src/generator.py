@@ -486,7 +486,7 @@ class IdentityGenerator:
 
         return ''.join(result)
 
-    def _build_full_name(self, components: Dict[str, Any], name_order: List[str], country: str = None, gender: str = None) -> str:
+    def _build_full_name(self, components: Dict[str, Any], name_order: List[str], country: str = None, gender: str = None, age: int = None) -> str:
         """
         Build full name according to name_order rules.
 
@@ -507,25 +507,26 @@ class IdentityGenerator:
                 # Handle 'surname' -> 'surname1' mapping for single-surname countries
                 parts.append(components['surname1'])
 
-        # Vietnam: Add gender marker between surname and first name
-        if country and country.lower() == 'vietnam' and gender:
-            # Vietnamese name structure: Surname + Gender_Marker + Given_Name
-            # For females: Add "Thị" (traditional female marker)
-            # For males: Add "Văn" (common male marker), but also allow no marker or other markers
-
+        # Vietnam: Add gender marker to given name (display will reorder to: Surname Marker Given)
+        # Vietnamese structure: Surname + Gender_Marker + Given_Name
+        # NOTE: Marker is prefixed here, but display_name_with_transliteration() handles correct ordering
+        if country and country.lower() == 'vietnam' and gender and age:
             if len(parts) >= 2:
                 # parts[0] is surname, parts[1] is given name
                 surname = parts[0]
                 given_name = parts[1]
 
                 if gender.lower() == 'female':
-                    # Always add Thị for females (traditional)
-                    parts = [surname, 'Thị', given_name]
+                    # Thị (traditional female marker) - decreasing usage in younger generations
+                    # Older women: very common | Young urban women: less common
+                    thi_probability = 0.90 if age >= 55 else 0.65 if age >= 35 else 0.35
+                    if random.random() < thi_probability:
+                        parts = [surname, 'Thị', given_name]
                 else:
-                    # For males: 70% chance of adding Văn, 30% no marker
-                    if random.random() < 0.7:
+                    # Văn (common male marker) - age-dependent usage
+                    van_probability = 0.85 if age >= 50 else 0.70 if age >= 30 else 0.45
+                    if random.random() < van_probability:
                         parts = [surname, 'Văn', given_name]
-                    # else: keep as is (no middle name)
 
         return ' '.join(parts)
 
@@ -954,6 +955,21 @@ class IdentityGenerator:
             else:
                 partner_surnames = [random.choice(partner_surnames_list)]
                 partner_surname_str = partner_surnames[0]
+
+            # Vietnam: Prefix gender marker to given name (display will reorder correctly)
+            # Vietnamese structure: Surname + Gender_Marker + Given_Name
+            # NOTE: Prefixing here, display_name_with_transliteration() handles correct ordering
+            if country.lower() == 'vietnam':
+                if opposite_gender == 'female':
+                    # Thị (traditional female marker) - age-dependent probability
+                    thi_probability = 0.90 if partner_age >= 55 else 0.65 if partner_age >= 35 else 0.35
+                    if random.random() < thi_probability:
+                        partner_name = f"Thị {partner_name}"
+                else:
+                    # Văn (common male marker) - higher probability for older generations
+                    van_probability = 0.85 if partner_age >= 50 else 0.70 if partner_age >= 30 else 0.45
+                    if random.random() < van_probability:
+                        partner_name = f"Văn {partner_name}"
 
             return {
                 "name": partner_name,
@@ -1469,6 +1485,19 @@ class IdentityGenerator:
         # Use bucket offset +2 for parents (or clamp to max)
         father_name = self.loader.load_name_by_age(country, 'male', age, bucket_offset=2)
         mother_name = self.loader.load_name_by_age(country, 'female', age, bucket_offset=2)
+
+        # Vietnam: Prefix gender markers to given names (display will reorder correctly)
+        # Vietnamese structure: Surname + Gender_Marker + Given_Name
+        # NOTE: Prefixing here, display_name_with_transliteration() handles correct ordering
+        if country.lower() == 'vietnam':
+            # Father: Văn very common in older generations
+            van_probability = 0.90 if father_age >= 60 else 0.85 if father_age >= 45 else 0.75
+            if random.random() < van_probability:
+                father_name = f"Văn {father_name}"
+            # Mother: Thị very common in older generations (but not universal)
+            thi_probability = 0.95 if mother_age >= 60 else 0.85 if mother_age >= 45 else 0.70
+            if random.random() < thi_probability:
+                mother_name = f"Thị {mother_name}"
         # Load gender-appropriate surnames for parents
         father_surnames_list = self.loader.load_surnames(country, 'male')
         mother_surnames_list = self.loader.load_surnames(country, 'female')
@@ -1834,6 +1863,22 @@ class IdentityGenerator:
                     for name_attempt in range(max_name_attempts):
                         child_name = self.loader.load_name_by_age(country, child_gender, age, bucket_offset=-2)
 
+                        # Vietnam: Prefix gender marker to given name (display will reorder correctly)
+                        # Vietnamese structure: Surname + Gender_Marker + Given_Name
+                        # NOTE: Prefixing here, display_name_with_transliteration() handles correct ordering
+                        # Child age calculated later, so using conservative estimate (typically < 35)
+                        if country.lower() == 'vietnam':
+                            if child_gender == 'female':
+                                # Thị less common in younger generations - conservative probability
+                                thi_probability = 0.40
+                                if random.random() < thi_probability:
+                                    child_name = f"Thị {child_name}"
+                            else:
+                                # Văn less common in younger generations - conservative probability
+                                van_probability = 0.45
+                                if random.random() < van_probability:
+                                    child_name = f"Văn {child_name}"
+
                         # Check exact name match
                         if child_name in used_child_names:
                             continue
@@ -2146,6 +2191,21 @@ class IdentityGenerator:
                 max_name_attempts = 50
                 for name_attempt in range(max_name_attempts):
                     sibling_name = self.loader.load_name_by_age(country, sibling_gender, age, bucket_offset=0)
+
+                    # Vietnam: Prefix gender marker to given name (display will reorder correctly)
+                    # Vietnamese structure: Surname + Gender_Marker + Given_Name
+                    # NOTE: Prefixing here, display_name_with_transliteration() handles correct ordering
+                    if country.lower() == 'vietnam':
+                        if sibling_gender == 'female':
+                            # Thị probability based on age (siblings have similar age to main identity)
+                            thi_probability = 0.90 if age >= 55 else 0.65 if age >= 35 else 0.35
+                            if random.random() < thi_probability:
+                                sibling_name = f"Thị {sibling_name}"
+                        else:
+                            # Văn probability depends on age
+                            van_probability = 0.85 if age >= 50 else 0.70 if age >= 30 else 0.45
+                            if random.random() < van_probability:
+                                sibling_name = f"Văn {sibling_name}"
 
                     # Check exact name match (all countries)
                     if sibling_name in used_sibling_names:
@@ -3381,7 +3441,7 @@ class IdentityGenerator:
 
         # Build full name according to rules
         name_order = rules.get_name_order()
-        full_name = self._build_full_name(name_components, name_order, country=country, gender=gender)
+        full_name = self._build_full_name(name_components, name_order, country=country, gender=gender, age=age)
 
         # Generate physical characteristics
         height_cm, weight_kg, hair_color, eye_color, skin_tone = self._generate_physical_characteristics(
